@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  href="styles/topnav.css">
+    <title>Button</title>
+  </head>
+  
+  <body>
+    <!-- https://www.w3schools.com/howto/howto_js_topnav.asp -->
+    <div class="topnav">
+      <a class="active" href="index.html">Dialpad</a>
+      <a href="scribble.html">Scribble</a>
+      <a href="animatedhover.html">AnimatedHover</a>
+    </div>
+
+    <!-- https://codepen.io/statanasova/pen/AoEEdp -->
+    <div id="container">  
+      <ul id="keyboard">   
+        <li onclick="play_dial(1)" class="letter">1</li>  
+        <li onclick="play_dial(2)" class="letter">2</li>  
+        <li onclick="play_dial(3)" class="letter">3</li>  
+        <li onclick="play_dial(4)" class="letter clearl">4</li>  
+        <li onclick="play_dial(5)" class="letter">5</li>  
+        <li onclick="play_dial(6)" class="letter">6</li> 
+        <li onclick="play_dial(7)" class="letter clearl">7</li>  
+        <li onclick="play_dial(8)" class="letter ">8</li>  
+        <li onclick="play_dial(9)" class="letter">9</li>  
+        <li class="letter clearl"></li>  
+        <li onclick="play_dial(0)" style="right: 60px;" class="letter">0</li>
+        <li class="letter"></li>  
+      </ul>  
+    </div>  
+
+    <script type="text/javascript" src="scripts/numpad.js"></script>
+  </body>
+</html>
