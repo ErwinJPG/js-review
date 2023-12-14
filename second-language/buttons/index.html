@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet"  href="styles/topnav.css">
-    <title>Button</title>
-  </head>
-  
-  <body>
-    <!-- https://www.w3schools.com/howto/howto_js_topnav.asp -->
-    <div class="topnav">
-      <a class="active" href="index.html">Dialpad</a>
-      <a href="scribble.html">Scribble</a>
-      <a href="animatedhover.html">AnimatedHover</a>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- I read about stylesheets being in one file so its cached once. Looks ugly ash-->
+  <link rel="stylesheet" href="styles/topnav.css">
+  <title>Button</title>
+</head>
 
-    <!-- https://codepen.io/statanasova/pen/AoEEdp -->
-    <div id="container">  
-      <ul id="keyboard">   
-        <li id="1" onclick="play_dial(1)" class="letter">1</li>  
-        <li id="2" onclick="play_dial(2)" class="letter">2</li>  
-        <li id="3" onclick="play_dial(3)" class="letter">3</li>  
-        <li id="4" onclick="play_dial(4)" class="letter clearl">4</li>  
-        <li id="5" onclick="play_dial(5)" class="letter">5</li>  
-        <li id="6" onclick="play_dial(6)" class="letter">6</li> 
-        <li id="7" onclick="play_dial(7)" class="letter clearl">7</li>  
-        <li id="8" onclick="play_dial(8)" class="letter ">8</li>  
-        <li id="9" onclick="play_dial(9)" class="letter">9</li>  
-        <li id="l" class="letter clearl"></li>  
-        <li id="0" onclick="play_dial(0)" class="letter">0</li>
-        <li id="r" class="letter"></li>  
-      </ul>  
-    </div>  
+<body>
+  <!-- https://www.w3schools.com/howto/howto_js_topnav.asp -->
+  <div class="topnav">
+    <a class="active" href="index.html">Dialpad</a>
+    <a href="scribble.html">Scribble</a>
+    <a href="animatedhover.html">AnimatedHover</a>
+  </div>
 
-    <script type="text/javascript" src="scripts/numpad.js"></script>
-  </body>
+  <!-- https://codepen.io/statanasova/pen/AoEEdp -->
+  <div id="container">
+    <ul id="keyboard">
+      <li id="1" onclick="play_dial(1)" class="letter">1</li>
+      <li id="2" onclick="play_dial(2)" class="letter">2</li>
+      <li id="3" onclick="play_dial(3)" class="letter">3</li>
+      <li id="4" onclick="play_dial(4)" class="letter clearl">4</li>
+      <li id="5" onclick="play_dial(5)" class="letter">5</li>
+      <li id="6" onclick="play_dial(6)" class="letter">6</li>
+      <li id="7" onclick="play_dial(7)" class="letter clearl">7</li>
+      <li id="8" onclick="play_dial(8)" class="letter ">8</li>
+      <li id="9" onclick="play_dial(9)" class="letter">9</li>
+      <li id="l" class="letter clearl"></li>
+      <li id="0" onclick="play_dial(0)" class="letter">0</li>
+      <li id="r" class="letter"></li>
+    </ul>
+    <b>Try 5, 5, 7, 5, 4, 4, 5, 0, 8, 5 in order!</b>
+  </div>
+
+  <script type="text/javascript" src="scripts/numpad.js"></script>
+</body>
+
 </html>

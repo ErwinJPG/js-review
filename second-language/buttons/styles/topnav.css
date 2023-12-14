@@ -283,6 +283,7 @@ div {
 
 /* https://codepen.io/statanasova/pen/AoEEdp */
 
+
 #container {
   width: 100%;
   height: 300px;
@@ -310,20 +311,32 @@ div {
   background: rgb(24, 26, 27);
   border: 1px solid rgb(24, 26, 27);
 
-  
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+
 }
+
+#container li {
+  list-style: none;
+  float: left;
+}
+
 .funk {
   /* https://codepen.io/bramus/pen/rNWByYz  */
   border-radius: 5px !important;
   border: 1px solid !important;
-	border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1 !important; 
-	animation: 1s rotate linear infinite !important;
+  border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1 !important;
+  animation: 1s rotate linear infinite !important;
 }
 
-@keyframes rotate { 
-	to {
-		--angle: 360deg;
-	}
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
 }
 
 @property --angle {
