@@ -18,6 +18,8 @@ function play_dial(num) {
 }
 
 function funk(num) {
+    // DISABLE TEXT HIGHLIGHTING FOR BUTTONS
+    // https://www.w3schools.com/howto/howto_css_disable_text_selection.asp
     let funky_tones = [5,5,7,5,4,4,5,0,8,5];
     if (num == funky_tones[hits] && !rainbowed) {
         hits += 1;
