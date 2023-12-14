@@ -1,25 +1,17 @@
 var soundPlayer = new Audio();
 var hits = 0;
 
-var low_tone = [697,770,852,941];
-var high_tone = [1209,1336,1477,1633];
-
-function encode_dtmf() {
-    // https://www.giangrandi.org/electronics/radio/dtmf.shtml
-    // https://www.mathworks.com/matlabcentral/fileexchange/91500-simple-dtmf-encoder-decoder
-    let signal = [];
-}
-
 function play_dial(num) {
     // https://stackoverflow.com/questions/25157513/javascript-pitch-shift-with-time-stretch
     // https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
     // dialing "3-3-2-3-9-3" should sound like funky town
-    let cmd = `sounds/dialpad/0.mp3`;
+    if (num < 0 || num > 9) {return};
+    let cmd = `sounds/dialpad/${num}.mp3`;
 
     soundPlayer.src = cmd; // <-- Find audio
     soundPlayer.load(cmd)
     soundPlayer.preservesPitch = false;
-    soundPlayer.playbackRate = num;
+    soundPlayer.playbackRate = 1;
     soundPlayer.play();
     funk(num);
 }
