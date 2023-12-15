@@ -19,18 +19,17 @@
           <form id="login-form">
             <form id="EmailForm">
               <label for="EmailField">Email address</label>
-              <input name="email" type="email" class="text-field" id="EmailField">
-              
+              <input name="email" type="text" class="text-field" id="EmailField">
             </form>
             <form id="PassForm">
               <label for="PassField">Password</label>
-              <input name="password" type="password" class="text-field" id="PassField">
+              <input name="password" type="text" class="text-field" id="PassField">
             </form>
-            <button id="submit-field" type="submit" class="submit-button">Login</button>
+            <button id="submit-field" type="submit" class="submit-button" onclick="validate_form()">Login</button>
           </form>
         </div>
       </div>
     </div>
-    <script src="" async defer></script>
+    <script src="scripts/loginValidator.js" async defer></script>
   </body>
 </html>
