@@ -1,17 +1,24 @@
 var soundPlayer = new Audio();
 var hits = 0;
+var loaded = false;
 var rainbowed = false;
+for (let i = 0; i < 10; i++) {
+    soundPlayer.load(`sounds/dialpad/${i}.mp3`);
+}
+window.addEventListener("load", function(){
+    loaded = true;
+})
 
 function play_dial(num) {
     // https://stackoverflow.com/questions/25157513/javascript-pitch-shift-with-time-stretch
     // https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
     // dialing "3-3-2-3-9-3" should sound like funky town
     // Should preload audio at DOM loading
+    if (!loaded) {return};
     if (num < 0 || num > 9) { return };
     let file = `sounds/dialpad/${num}.mp3`;
 
     soundPlayer.src = file; // <-- Find audio
-    soundPlayer.load(file)
     soundPlayer.preservesPitch = false;
     soundPlayer.playbackRate = 1;
     soundPlayer.play();

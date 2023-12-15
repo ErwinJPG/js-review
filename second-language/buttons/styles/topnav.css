@@ -339,6 +339,7 @@ div {
   }
 }
 
+/* unsupported by Firefox, Firefox for Android, Safari, Safari on iOS */
 @property --angle {
   syntax: '<angle>';
   initial-value: 0deg;
