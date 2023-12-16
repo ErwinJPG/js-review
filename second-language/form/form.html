@@ -22,8 +22,10 @@
             <form id="EmailForm">
               <label for="EmailField">Email address</label>
               <input oninput="validate_email()" autocomplete="email" type="text" class="text-field" id="EmailField">
-              <div class="error-cross">X</div>
-              <!-- <label for="EmailField" class="incorrect-email" id="incorrect-email">Invalid email.</label> -->
+              <svg class="error-class">
+                <path d="M0, 0, L18,18" class="error-cross1"/>
+                <path d="M18, 0, L0,18" class="error-cross2"/>
+              </svg>
             </form>
             <form id="PassForm">
               <label for="PassField">Password</label>

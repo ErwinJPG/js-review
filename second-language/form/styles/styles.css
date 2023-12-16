@@ -5,6 +5,12 @@ body {
     color: black;
 }
 
+.background {
+    background-image: url(https://www.hdwallpapers.in/download/beautiful_lake_landscape_scenery_4k_8k-1920x1080.jpg);
+    background-size: cover;
+    height: 100%;
+}
+
 .login-panel {
     width: 580px;
     height: auto;
@@ -16,26 +22,28 @@ body {
     margin: auto;
 }
 
-.background {
-    background-image: url(https://www.hdwallpapers.in/download/beautiful_lake_landscape_scenery_4k_8k-1920x1080.jpg);
-    background-size: cover;
-    height: 100%;
-}
-
 .login-layout {
     padding: 40px 56px;
 }
 
+@media screen and (min-width: 1280px){
+    .login-panel {
+        width: 580px;
+    }
+}
+
+@media screen and (min-width: 510px){
+    .login-panel {
+        width: 580px;
+        margin: auto;
+    }
+}
+
 /* Mostly yoinked from adobe login*/
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 650px) {
     .login-panel {
         height: 100%;
         width: 100%;
-    }
-
-    .login-layout {
-        height: 100%;
-        padding: 40px;
     }
 }
 
@@ -65,14 +73,21 @@ body {
     width: 90%;
     height: 18px;
     border: none;
-    border-bottom: 2px rgb(153, 153, 153) solid;
+    border-bottom: 2px;
+    border-bottom-color: rgb(153, 153, 153);
+    border-bottom-style: solid;
     font-size: 16px;
     margin-bottom: 12px;
     outline: none;
 }
 
 .text-field:focus {
-    border-bottom: 2px rgb(0, 81, 255) solid;
+    border-bottom: 2px rgb(0, 81, 255) solid !important;
+}
+
+@keyframes border-transition {
+    from {border-bottom-color: rgb(153, 153, 153);}
+    to {border-bottom-color: #e34850;}
 }
 
 .submit-button {
@@ -107,13 +122,37 @@ body {
     font-size: 30px;
 }
 
-.error-cross {
-    width: auto;
-    float:right;
-    overflow: auto;
+.error-class {
+    float: right;
+    position: absolute;
+    padding-left: 15px;
+    width: 18px;
 }
 
-.incorrect-email {
-    color: red;
+/* https://www.toptal.com/front-end/svg-animation-guide */
+.error-cross1,
+.error-cross2 {
+    position: relative;
+    stroke: #e34850;
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 100%;
+    fill: none;
+    stroke-width: 3px;
+    animation-name: error-slash;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes error-slash {
+    from {stroke-dashoffset: 100%;}
+    to {stroke-dashoffset: 0%;}
+}
+
+.invalid-email {
+    border-bottom-color: #e34850;
     margin-bottom: 5px;
+    animation-name: border-transition;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
 }
