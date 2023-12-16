@@ -8,26 +8,45 @@ body {
 .login-panel {
     width: 580px;
     height: auto;
-    
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     right: 0;
-
     background-color: #fff;
     margin: auto;
 }
 
-/* Mostly yoinked from adobe login*/
-@media screen and (min-width: 510px) {
-    .background {
-        background-image: url(https://picsum.photos/seed/picsum/200/300);
-    }
-
+.background {
+    background-image: url(https://www.hdwallpapers.in/download/beautiful_lake_landscape_scenery_4k_8k-1920x1080.jpg);
+    background-size: cover;
+    height: 100%;
 }
 
 .login-layout {
     padding: 40px 56px;
+}
+
+/* Mostly yoinked from adobe login*/
+@media screen and (max-width: 630px) {
+    .login-panel {
+        height: 100%;
+        width: 100%;
+    }
+
+    .login-layout {
+        height: 100%;
+        padding: 40px;
+    }
+}
+
+.login-layout .link,
+.link:visited,
+.link:hover,
+.link:active {
+    color: rgba(0, 81, 255, 255);
+    margin-top: 12px;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 .login-head {
@@ -41,20 +60,19 @@ body {
 /* from github login */
 /* High contrast colours */
 .text-field {
-    display: block;
     background-color: rgba(0, 0, 0, 0);
     border-color: #eaeaea;
     width: 90%;
-    height: 16px;
+    height: 18px;
     border: none;
-    border-bottom: 2px rgba(153, 153, 153, 255) solid;
-    font-size: 14px;
+    border-bottom: 2px rgb(153, 153, 153) solid;
+    font-size: 16px;
     margin-bottom: 12px;
     outline: none;
 }
 
 .text-field:focus {
-    border-bottom: 2px rgba(0, 81, 255, 255) solid;
+    border-bottom: 2px rgb(0, 81, 255) solid;
 }
 
 .submit-button {
@@ -67,6 +85,35 @@ body {
     padding: 6px;
 }
 
-.submit-button:hover {
-    border-color: red;
+.submit-button:active {
+    background-color: rgba(41, 41, 41, 0.1);
+}
+
+.back-tooltip {
+    display: none;
+}
+
+.return-button {
+    float: left;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin: 8px;
+    background-color: #eaeaea;
+    border: 1px black solid;
+    border-radius: 60px;
+    text-align: center;
+    text-rendering: auto;
+    font-size: 30px;
+}
+
+.error-cross {
+    width: auto;
+    float:right;
+    overflow: auto;
+}
+
+.incorrect-email {
+    color: red;
+    margin-bottom: 5px;
 }
