@@ -2,31 +2,40 @@
 
 const regex_email = /[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+(?:\.[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+)*@(?:[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?/i;
 var is_invalid = false;
-
-function validate_form() {}
+var in_focus = false;
+var email_field = document.getElementById("EmailField");
+if (email_field) {
+    email_field.addEventListener('focus', function() {
+        in_focus = true;
+    })
+    email_field.addEventListener('focusout', function() {
+        in_focus = false;
+    })
+}
 
 // Add ability to turn bottom border of input red when incorrect
 function validate_email() {
-    let element = document.getElementById("EmailField");
-    let email = element.value;
+    let email = email_field.value;
     let x = email.match(regex_email);
     let svg = create_cross()
+    let p = create_requirements()
     // Should show user that the input is not a valid email by making bottom bar red,
     // Append an animated X to side of email form,
     // Create a text (label) displaying "Invalid email."
-    // Implement using element.classList.add("incorrect-email") and .remove(...) 
+    // Implement using email_field.classList.add("incorrect-email") and .remove(...) 
     if (x == null && !is_invalid) {
         is_invalid = true;
-        console.log("Invalid email");
-        element.classList.add("invalid-email-border");
-        element.after(svg);
+        email_field.classList.add("invalid-email-border");
+        email_field.after(p);
+        email_field.after(svg);
     } 
     if (x != null) {
         is_invalid = false;
-        console.log(email);
-        element.classList.remove("invalid-email-border");
+        email_field.classList.remove("invalid-email-border");
         document.getElementById("error-div").remove(); // SPAMS CONSOLE WITH ERROR.
+        document.getElementById("invalid-message").remove(); // SPAMS CONSOLE WITH ERROR.
     }
+    console.log(x, is_invalid, in_focus)
 }
 
 function create_cross() {
@@ -49,5 +58,11 @@ function create_cross() {
 //terrible naming
 function create_requirements() {
     const p = document.createElement("p");
+    const text = document.createTextNode("Invalid email.");
     p.setAttribute("class", "invalid-email")
+    p.setAttribute("id", "invalid-message")
+    p.appendChild(text)
+    return p
 }
+
+function validate_form() {}

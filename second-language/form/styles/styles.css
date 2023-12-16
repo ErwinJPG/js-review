@@ -5,7 +5,7 @@ body {
     color: black;
     background-image: url(../images/lake.jpg);
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fZixed;
     margin: 0px;
 }
 
@@ -150,6 +150,7 @@ body {
 
 .invalid-email {
     color: #e34850;
+    margin: 0px;
 }
 
 .invalid-email-border {
