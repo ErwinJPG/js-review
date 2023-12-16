@@ -9,7 +9,6 @@
   </head>
   
   <body>
-    <div class="background">
       <button type="button" class="return-button">
         <
       </button>
@@ -22,10 +21,6 @@
             <form id="EmailForm">
               <label for="EmailField">Email address</label>
               <input oninput="validate_email()" autocomplete="email" type="text" class="text-field" id="EmailField">
-              <svg class="error-class">
-                <path d="M0, 0, L18,18" class="error-cross1"/>
-                <path d="M18, 0, L0,18" class="error-cross2"/>
-              </svg>
             </form>
             <form id="PassForm">
               <label for="PassField">Password</label>
@@ -36,7 +31,6 @@
           <p>Don't have an account? <span class="link"><a href="#" class="link">Sign up.</a></span></p>
         </div>
       </div>
-    </div>
     <script src="scripts/loginValidator.js" async defer></script>
   </body>
 </html>

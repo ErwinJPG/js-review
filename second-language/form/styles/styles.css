@@ -3,12 +3,10 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     color: black;
-}
-
-.background {
     background-image: url(../images/lake.jpg);
     background-size: cover;
-    height: 100%;
+    background-attachment: fixed;
+    margin: 0px;
 }
 
 .login-panel {
@@ -139,9 +137,9 @@ body {
     fill: none;
     stroke-width: 3px;
     animation-name: error-slash;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
-    animation-timing-function: ease;
+    animation-timing-function: linear;
 }
 
 @keyframes error-slash {
@@ -150,6 +148,10 @@ body {
 }
 
 .invalid-email {
+    color: #e34850;
+}
+
+.invalid-email-border {
     border-bottom-color: #e34850;
     margin-bottom: 5px;
     animation-name: border-transition;
