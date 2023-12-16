@@ -6,7 +6,7 @@ body {
 }
 
 .background {
-    background-image: url(https://www.hdwallpapers.in/download/beautiful_lake_landscape_scenery_4k_8k-1920x1080.jpg);
+    background-image: url(../images/lake.jpg);
     background-size: cover;
     height: 100%;
 }
