@@ -10,6 +10,7 @@
 </head>
 
 <body>
+  <div id="background" class="background"></div>
   <div class="login-panel">
     <div class="login-layout">
       <h2>Create an account</h2>
@@ -26,14 +27,23 @@
         <form id="PassForm">
             <label for="PassField">Password</label>
             <input oninput="validatePassword()" type="password" type="text" class="text-field" id="PassField">
+            <div class="pass-list hidden" id="PassRequirements">
+              <b>Passwords must: </b>
+              <ul>
+                <li id="minChar">contain 6 characters</li>
+                <li id="minNum">contain one number</li>
+                <li id="minSpec">contain one special character</li>
+              </ul>
+            </div>
         </form>
       </div>
-      <input type="checkbox" id="TOScheckbox">
-      <label class="tos-label" for="TOScheckbox">
-        I have read the <span><a onclick="nerd()" href="#" class="link"> terms of service </a></span>.
-      </label>
-      <button id="submit-field" type="submit" class="submit-button" onclick="validateForm()">Create my
-        account</button>
+      <div id="tos">
+        <input type="checkbox" id="TOScheckbox">
+        <label class="tos-label" for="TOScheckbox">
+          I have read the <span><a onclick="nerd()" href="#" class="link"> terms of service </a></span>.
+        </label>
+      </div>
+      <button id="submit-field" type="submit" class="submit-button" onclick="validateForm()">Create my account</button>
       <p>Already have an account? <span class="link"><a href="#" class="link">Log in.</a></span></p>
     </div>
   </div>

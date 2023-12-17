@@ -4,12 +4,16 @@ const passRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$/
 var isInvalidEmail = false;
 var isInvalidUsername = false;
 var isInvalidPass = false;
+var isAccountCreated = false;
 var isUsernameFieldFocused = false;
 var isEmailFieldFocused = false;
 var isPassFieldFocused = false;
 var usernameField = document.getElementById("UsernameField");
 var emailField = document.getElementById("EmailField");
 var passField = document.getElementById("PassField");
+var tosCheck = document.getElementById("TOScheckbox")
+var submitButton = document.getElementById("submit-field")
+var PassRequirements = document.getElementById("PassRequirements")
 
 if (usernameField) {
     usernameField.addEventListener('click', function() {
@@ -53,7 +57,7 @@ if (passField) {
 
 function validateUsername() {
     let usernameValue = usernameField.value;
-    let isValidUsername = usernameValue.match(userRegex);
+    let isValidUsername = usernameValue.match(userRegex); // 6 characters, no special characters except -_
 
     let errorDiv = document.getElementById("error-div-username");
     let invalidMessage = document.getElementById("invalid-message-username");
@@ -88,7 +92,7 @@ function validateUsername() {
 
 function validateEmail() {
     let emailValue = emailField.value;
-    let isValidEmail = emailValue.match(emailRegex);
+    let isValidEmail = emailValue.match(emailRegex); // example@domain.com
 
     let errorDiv = document.getElementById("error-div-email");
     let invalidMessage = document.getElementById("invalid-message-email");
@@ -126,7 +130,7 @@ function validateEmail() {
 
 function validatePassword() {
     let passValue = passField.value;
-    let isValidPass = passValue.match(passRegex);
+    let isValidPass = passValue.match(passRegex); // Min 6 char, 1 number, 1 special char
 
     let errorDiv = document.getElementById("error-div-password");
     let invalidMessage = document.getElementById("invalid-message-password");
@@ -157,42 +161,7 @@ function validatePassword() {
         if (!checkDiv) passField.after(createCheck("password"));
         if (errorDiv) { errorDiv.remove(); }
         if (invalidMessage) { invalidMessage.remove(); }
-        return true;
-    }
-    return false;
-}
-function validatePassword1() {
-    let passValue = passField.value;
-    let isValidPass = passValue.match(passRegex);
-
-    let errorDiv = document.getElementById("error-div-password");
-    let invalidMessage = document.getElementById("invalid-message-password");
-    let checkDiv = document.getElementById("check-div-password");
-    if (isPassFieldFocused) {
-        isInvalidPass = false
-        passField.classList.remove("valid-border")
-        passField.classList.remove("invalid-border");
-        if (checkDiv) { checkDiv.remove(); }
-        if (errorDiv) { errorDiv.remove(); }
-        if (invalidMessage) { invalidMessage.remove(); }
-    }
-
-    else if (isValidPass === null && !isInvalidPass && !isPassFieldFocused && passValue != "") {
-        isInvalidPass = true;
-        passField.classList.add("invalid-border");
-        passField.classList.remove("valid-border")
-        if (!errorDiv) passField.after(createRequirements("password"));
-        if (!errorDiv) passField.after(createCross("pass"));
-        if (checkDiv) { checkDiv.remove(); }
-        
-    } 
-    else if (isValidPass !== null && !isPassFieldFocused) {
-        isInvalidPass = false;
-        passField.classList.add("valid-border");
-        passField.classList.remove("invalid-border");
-        if (!checkDiv) passField.after(createCheck("pass"));
-        if (errorDiv) { errorDiv.remove(); }
-        if (invalidMessage) { invalidMessage.remove(); }
+        if (PassRequirements) { PassRequirements.classList.add("hidden") }
         return true;
     }
     return false;
@@ -231,18 +200,26 @@ function createCheck(identifier) {
     return svg; 
 }
 
+// https://www.w3schools.com/howto/howto_js_password_validation.asp
 function createRequirements(identifier) {
+    console.log(identifier)
     const p = document.createElement("p");
-    const text = document.createTextNode(`Invalid ${identifier}.`);
-    let details = NaN;
-    if (identifier == "username") {
-    }
-    else if (identifier == "password") {
-    }
+    const text = document.createTextNode(`Invalid ${identifier}. `);
     p.setAttribute("id", `invalid-message-${identifier}`);
     p.setAttribute("class", "invalid");
-
     p.appendChild(text);
+
+    if (identifier == "username") {
+        let details = document.createTextNode("Must contain at least 6 characters")
+        p.appendChild(details)
+    }
+    else if (identifier == "email") {
+        let details = document.createTextNode("Do you not know what email is?")
+        p.appendChild(details)
+    }
+    else if (identifier == "password") {
+        PassRequirements.classList.remove("hidden")
+    }
     //p.appendChild(details);
     return p;
 }
@@ -251,6 +228,7 @@ function validateForm() {
     let formUsername = document.getElementById("UsernameForm")
     let formEmail = document.getElementById("EmailForm")
     let formPass = document.getElementById("PassForm")
+    let tosElement = document.getElementById("tos")
     if (!validateUsername()) {
         formUsername.classList.remove("border-shake")
         void formUsername.offsetWidth;
@@ -266,8 +244,21 @@ function validateForm() {
         void formPass.offsetWidth;
         formPass.classList.add("border-shake")
     }
+    if (!tosCheck.checked) {
+        tosElement.classList.remove("border-shake")
+        void tosElement.offsetWidth;
+        tosElement.classList.add("border-shake")
+    }
+    if (validateUsername() && validateEmail() && validatePassword() && tosCheck.checked && !isAccountCreated) {
+        isAccountCreated = true
+        let p = document.createElement("p")
+        let text = document.createTextNode("Your account has been created.")
+        p.append(text)
+        submitButton.after(p)
+    }
 }
 
 function nerd() {
     document.body.style.backgroundImage = "url(https://media1.tenor.com/m/xCc58fEqFREAAAAd/nerd-nerdy.gif)";
+    document.getElementById("background").style.backgroundImage = "url(https://media1.tenor.com/m/xCc58fEqFREAAAAd/nerd-nerdy.gif)";
 }
