@@ -10,13 +10,16 @@ var passField = document.getElementById("PassField");
 
 if (emailField) {
     emailField.addEventListener('click', function() {
+        FieldInFocus = "email"
         isFieldInFocus = true;
         validateEmail();
     });
     emailField.addEventListener('focus', function() {
+        FieldInFocus = "email"
         isFieldInFocus = true;
     });
     emailField.addEventListener('focusout', function() {
+        FieldInFocus = "email"
         isFieldInFocus = false;
         validateEmail();
     });
