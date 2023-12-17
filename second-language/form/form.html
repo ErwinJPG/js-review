@@ -17,7 +17,7 @@
         <form id="login-form">
           <form id="UsernameForm">
             <label for="UsernameField">Username</label>
-            <input autocomplete="username" type="text" class="text-field" id="UsernameField">
+            <input oninput="validateUsername()" autocomplete="username" type="text" class="text-field" id="UsernameField">
           </form>
           <form id="EmailForm">
             <label for="EmailField">Email address</label>
@@ -31,7 +31,7 @@
           <label class="tos-label" for="TOScheckbox">
             I have read the <span><a onclick="nerd()" href="#" class="link"> terms of service </a></span>.
           </label>
-          <button id="submit-field" type="submit" class="submit-button" onclick="validateForm()">Sign up</button>
+          <button id="submit-field" type="submit" class="submit-button" onclick="validateForm()">Create my account</button>
         </form>
         <p>Already have an account? <span class="link"><a href="#" class="link">Log in.</a></span></p>
       </div>

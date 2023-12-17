@@ -1,49 +1,107 @@
 const emailRegex = /[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+(?:\.[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+)*@(?:[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?/i;
-const userRegex = /^(?=.$)[a-zA-Z0-9._]/i; // https://stackoverflow.com/questions/12018245/regular-expression-to-validate-username
+const userRegex = /^[a-z0-9_-]{6,32}$/i; // https://stackoverflow.com/questions/12018245/regular-expression-to-validate-username
 var isInvalidEmail = false;
 var isInvalidUsername = false;
 var isFieldInFocus = false;
+var FieldInFocus = ""
+var usernameField = document.getElementById("UsernameField");
 var emailField = document.getElementById("EmailField");
+var passField = document.getElementById("PassField");
 
 if (emailField) {
+    emailField.addEventListener('click', function() {
+        isFieldInFocus = true;
+        validateEmail();
+    });
     emailField.addEventListener('focus', function() {
         isFieldInFocus = true;
     });
-
     emailField.addEventListener('focusout', function() {
         isFieldInFocus = false;
         validateEmail();
     });
 }
 
-function validateEmail() {
-    let emailValue = emailField.value;
-    let isValidEmail = emailValue.match(emailRegex);
+function validateUsername() {
+    let usernameValue = usernameField.value;
+    let isValidUsername = usernameValue.match(userRegex);
 
-    var errorDiv = document.getElementById("error-div");
-    var invalidMessage = document.getElementById("invalid-message");
-    var checkDiv = document.getElementById("check-div");
-
-    if (isValidEmail === null && !isInvalidEmail && !isFieldInFocus) {
-        isInvalidEmail = true;
-        emailField.classList.remove("valid-email-border")
-        emailField.classList.add("invalid-email-border");
-        if (!errorDiv) emailField.after(createRequirements());
-        if (!errorDiv) emailField.after(createCross());
+    let errorDiv = document.getElementById("error-div-username");
+    let invalidMessage = document.getElementById("invalid-message-username");
+    let checkDiv = document.getElementById("check-div-username");
+    console.log(isValidUsername === null, !isInvalidUsername, !isFieldInFocus,usernameValue != "")
+    if (isFieldInFocus) {
+        isInvalidUsername = false
+        usernameField.classList.remove("valid-email-border")
+        usernameField.classList.remove("invalid-email-border");
         if (checkDiv) { checkDiv.remove(); }
-    } else if (isValidEmail !== null) {
-        isInvalidEmail = false;
-        emailField.classList.remove("invalid-email-border");
-        emailField.classList.add("valid-email-border");
-        if (!checkDiv) emailField.after(createCheck());
+        if (errorDiv) { errorDiv.remove(); }
+        if (invalidMessage) { invalidMessage.remove(); }
+    }
+    else if (isValidUsername === null && !isInvalidUsername && !isFieldInFocus && usernameValue != "") {
+        console.log(2)
+        isInvalidUsername = true;
+        usernameField.classList.add("invalid-email-border");
+        usernameField.classList.remove("valid-email-border")
+        if (!errorDiv) usernameField.after(createRequirements("username"));
+        if (!errorDiv) usernameField.after(createCross("username"));
+        if (checkDiv) { checkDiv.remove(); }
+        
+    } 
+    else if (isValidUsername !== null && !isFieldInFocus) {
+        console.log(3)
+        isInvalidUsername = false;
+        usernameField.classList.add("valid-email-border");
+        usernameField.classList.remove("invalid-email-border");
+        if (!checkDiv) usernameField.after(createCheck("username"));
         if (errorDiv) { errorDiv.remove(); }
         if (invalidMessage) { invalidMessage.remove(); }
     }
 }
 
-function createCross() {
+function validateEmail() {
+    let emailValue = emailField.value;
+    let isValidEmail = emailValue.match(emailRegex);
+
+    let errorDiv = document.getElementById("error-div-email");
+    let invalidMessage = document.getElementById("invalid-message-email");
+    let checkDiv = document.getElementById("check-div-email");
+    if (isFieldInFocus) {
+        isInvalidEmail = false
+        emailField.classList.remove("valid-email-border")
+        emailField.classList.remove("invalid-email-border");
+        if (checkDiv) { checkDiv.remove(); }
+        if (errorDiv) { errorDiv.remove(); }
+        if (invalidMessage) { invalidMessage.remove(); }
+    }
+    // Does regex find a match? Is there already an error displayed?
+    // Is the email field in focus? Is there nothing in the email field?
+    else if (isValidEmail === null && !isInvalidEmail && !isFieldInFocus && emailValue != "") {
+        isInvalidEmail = true;
+        emailField.classList.add("invalid-email-border");
+        emailField.classList.remove("valid-email-border")
+        if (!errorDiv) emailField.after(createRequirements("email"));
+        if (!errorDiv) emailField.after(createCross("email"));
+        if (checkDiv) { checkDiv.remove(); }
+        
+    } 
+    else if (isValidEmail !== null && !isFieldInFocus) {
+        isInvalidEmail = false;
+        emailField.classList.add("valid-email-border");
+        emailField.classList.remove("invalid-email-border");
+        if (!checkDiv) emailField.after(createCheck("email"));
+        if (errorDiv) { errorDiv.remove(); }
+        if (invalidMessage) { invalidMessage.remove(); }
+    }
+}
+
+function validatePassword() {
+
+}
+
+function createCross(identifier) {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("id", "error-div");
+    svg.setAttribute("id", `error-div-${identifier}`);
     svg.classList.add("error-class");
 
     const path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -60,9 +118,9 @@ function createCross() {
     return svg;
 }
 
-function createCheck() {
+function createCheck(identifier) {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("id", "check-div");
+    svg.setAttribute("id", `check-div-${identifier}`);
     svg.classList.add("valid-class");
 
     const path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -74,14 +132,13 @@ function createCheck() {
     return svg; 
 }
 
-function validateUsername() {
-}
-
-function createRequirements() {
+function createRequirements(identifier) {
+    console.log(identifier)
     const p = document.createElement("p");
-    const text = document.createTextNode("Invalid email.");
+    const text = document.createTextNode(`Invalid ${identifier}.`);
+    p.setAttribute("id", `invalid-message-${identifier}`);
     p.setAttribute("class", "invalid-email");
-    p.setAttribute("id", "invalid-message");
+
     p.appendChild(text);
     return p;
 }
