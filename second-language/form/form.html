@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Form</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/styles.css">
-  </head>
-  
-  <body>
-    <div class="login-panel">
-      <div class="login-layout">
-        <h2>Create an account</h2>
-        <header class="login-head">
-        </header>
-        <form id="login-form">
-          <form id="UsernameForm">
-            <label for="UsernameField">Username</label>
-            <input oninput="validateUsername()" autocomplete="username" type="text" class="text-field" id="UsernameField">
-          </form>
-          <form id="EmailForm">
+
+<head>
+  <meta charset="utf-8">
+  <title>Form</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  <div class="login-panel">
+    <div class="login-layout">
+      <h2>Create an account</h2>
+      <header class="login-head"></header>
+      <div id="LoginForm">
+        <form id="UsernameForm">
+          <label for="UsernameField">Username</label>
+          <input oninput="validateUsername()" autocomplete="username" type="text" class="text-field" id="UsernameField">
+        </form>
+        <form id="EmailForm">
             <label for="EmailField">Email address</label>
             <input oninput="validateEmail()" autocomplete="email" type="text" class="text-field" id="EmailField">
-          </form>
-          <form id="PassForm">
-            <label for="PassField">Password</label>
-            <input type="password" type="text" class="text-field" id="PassField">
-          </form>
-          <input type="checkbox" id="TOScheckbox">
-          <label class="tos-label" for="TOScheckbox">
-            I have read the <span><a onclick="nerd()" href="#" class="link"> terms of service </a></span>.
-          </label>
-          <button id="submit-field" type="submit" class="submit-button" onclick="validateForm()">Create my account</button>
         </form>
-        <p>Already have an account? <span class="link"><a href="#" class="link">Log in.</a></span></p>
+        <form id="PassForm">
+            <label for="PassField">Password</label>
+            <input oninput="validatePassword()" type="password" type="text" class="text-field" id="PassField">
+        </form>
       </div>
+      <input type="checkbox" id="TOScheckbox">
+      <label class="tos-label" for="TOScheckbox">
+        I have read the <span><a onclick="nerd()" href="#" class="link"> terms of service </a></span>.
+      </label>
+      <button id="submit-field" type="submit" class="submit-button" onclick="validateForm()">Create my
+        account</button>
+      <p>Already have an account? <span class="link"><a href="#" class="link">Log in.</a></span></p>
     </div>
-    <script src="scripts/loginValidator.js" async defer></script>
-  </body>
+  </div>
+  <script src="scripts/loginValidator.js" async defer></script>
+</body>
+
 </html>

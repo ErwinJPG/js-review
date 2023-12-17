@@ -158,23 +158,31 @@ body {
     to {stroke-dashoffset: 0%;}
 }
 
-.invalid-email {
+.invalid {
     color: #e34850;
     margin: 0px;
+    font-size: 14px;
 }
 
-.invalid-email-border {
+.invalid-border {
     margin-bottom: 5px;
     animation-name:  border-transition-incorrect;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
 }
 
-.valid-email-border {
+.valid-border {
     margin-bottom: 5px;
     animation-name: border-transition-correct;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
+}
+
+.border-shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) none;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 @keyframes border-transition-incorrect {
@@ -186,6 +194,25 @@ body {
     from {border-bottom-color: rgb(153, 153, 153);}
     to {border-bottom-color: rgb(143, 211, 40);}
 }
+
+/* https://css-tricks.com/snippets/css/shake-css-keyframe-animation/ */
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-2px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(3px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-5px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(5px, 0, 0);
+    }
+  }
 
 .tos-label {
     font-size: small;
