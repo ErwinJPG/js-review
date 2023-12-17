@@ -3,10 +3,10 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     color: black;
-    background-image: url(../images/lake.jpg);
-    background-size: cover;
-    background-attachment: fZixed;
     margin: 0px;
+    background-image: url(../images/lake1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .login-panel {
@@ -83,11 +83,6 @@ body {
     border-bottom: 2px rgb(0, 81, 255) solid !important;
 }
 
-@keyframes border-transition {
-    from {border-bottom-color: rgb(153, 153, 153);}
-    to {border-bottom-color: #e34850;}
-}
-
 .submit-button {
     display: block;
     height: auto;
@@ -121,7 +116,8 @@ body {
     font-size: 30px;
 }
 
-.error-class {
+.error-class,
+.valid-class {
     float: right;
     position: absolute;
     padding-left: 15px;
@@ -137,13 +133,26 @@ body {
     stroke-dashoffset: 100%;
     fill: none;
     stroke-width: 3px;
-    animation-name: error-slash;
-    animation-duration: 3s;
+    animation-name: slash;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
 }
 
-@keyframes error-slash {
+.check1 {
+    position: relative;
+    stroke: rgb(143, 211, 40);
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 100%;
+    fill: none;
+    stroke-width: 3px;
+    animation-name: slash;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes slash {
     from {stroke-dashoffset: 100%;}
     to {stroke-dashoffset: 0%;}
 }
@@ -154,9 +163,30 @@ body {
 }
 
 .invalid-email-border {
-    border-bottom-color: #e34850;
     margin-bottom: 5px;
-    animation-name: border-transition;
+    animation-name:  border-transition-incorrect;
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
+}
+
+.valid-email-border {
+    margin-bottom: 5px;
+    animation-name: border-transition-correct;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes border-transition-incorrect {
+    from {border-bottom-color: rgb(153, 153, 153);}
+    to {border-bottom-color: #e34850;}
+}
+
+@keyframes border-transition-correct {
+    from {border-bottom-color: rgb(153, 153, 153);}
+    to {border-bottom-color: rgb(143, 211, 40);}
+}
+
+.tos-label {
+    font-size: small;
+    margin-bottom: 12px;
 }

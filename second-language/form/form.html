@@ -9,25 +9,33 @@
   </head>
   
   <body>
-      <div class="login-panel">
-        <div class="login-layout">
-          <h2>Login</h2>
-          <header class="login-head">
-          </header>
-          <form id="login-form">
-            <form id="EmailForm">
-              <label for="EmailField">Email address</label>
-              <input oninput="validateEmail()" autocomplete="email" type="text" class="text-field" id="EmailField">
-            </form>
-            <form id="PassForm">
-              <label for="PassField">Password</label>
-              <input type="password" type="text" class="text-field" id="PassField">
-            </form>
-            <button id="submit-field" type="submit" class="submit-button" onclick="validateForm()">Login</button>
+    <div class="login-panel">
+      <div class="login-layout">
+        <h2>Create an account</h2>
+        <header class="login-head">
+        </header>
+        <form id="login-form">
+          <form id="UsernameForm">
+            <label for="UsernameField">Username</label>
+            <input autocomplete="username" type="text" class="text-field" id="UsernameField">
           </form>
-          <p>Don't have an account? <span class="link"><a href="#" class="link">Sign up.</a></span></p>
-        </div>
+          <form id="EmailForm">
+            <label for="EmailField">Email address</label>
+            <input oninput="validateEmail()" autocomplete="email" type="text" class="text-field" id="EmailField">
+          </form>
+          <form id="PassForm">
+            <label for="PassField">Password</label>
+            <input type="password" type="text" class="text-field" id="PassField">
+          </form>
+          <input type="checkbox" id="TOScheckbox">
+          <label class="tos-label" for="TOScheckbox">
+            I have read the <span><a onclick="nerd()" href="#" class="link"> terms of service </a></span>.
+          </label>
+          <button id="submit-field" type="submit" class="submit-button" onclick="validateForm()">Sign up</button>
+        </form>
+        <p>Already have an account? <span class="link"><a href="#" class="link">Log in.</a></span></p>
       </div>
+    </div>
     <script src="scripts/loginValidator.js" async defer></script>
   </body>
 </html>
