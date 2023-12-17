@@ -259,6 +259,6 @@ function validateForm() {
 }
 
 function nerd() {
-    document.body.style.backgroundImage = "url(https://media1.tenor.com/m/xCc58fEqFREAAAAd/nerd-nerdy.gif)";
-    document.getElementById("background").style.backgroundImage = "url(https://media1.tenor.com/m/xCc58fEqFREAAAAd/nerd-nerdy.gif)";
+    let x = document.getElementById("background")
+    x.style.backgroundImage = "url(https://media1.tenor.com/m/xCc58fEqFREAAAAd/nerd-nerdy.gif)";
 }
