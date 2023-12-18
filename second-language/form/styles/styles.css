@@ -13,6 +13,7 @@ body {
     left: 0;
     right: 0;
     top: 0;
+    /* background-image: url(https://drive.google.com/uc?export=view&id=13YUWJbsAHHrGLyB8nhrexydf6D-3_5se); */
     background-image: url(../images/lake1.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -115,6 +116,10 @@ body {
 
 .pass-list li {
     color: #e34850;
+    font-size:medium;
+}
+.correct{
+    color: rgb(143, 211, 40) !important;
     font-size:medium;
 }
 

@@ -1,6 +1,11 @@
 const emailRegex = /[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+(?:\.[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+)*@(?:[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?/i;
 const userRegex = /^[a-z0-9_-]{6,32}$/i; // https://stackoverflow.com/questions/12018245/regular-expression-to-validate-username
-const passRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$/i;
+const passRegexCombined = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,128}$/i;
+const passRegexChar = /[A-Za-z\d#@$!%*?&]{6,128}/gm
+const passRegexNum = /\d/mi
+const passRegexSymbol = /[!@#$%^&*]/m
+
+
 var isInvalidEmail = false;
 var isInvalidUsername = false;
 var isInvalidPass = false;
@@ -130,7 +135,7 @@ function validateEmail() {
 
 function validatePassword() {
     let passValue = passField.value;
-    let isValidPass = passValue.match(passRegex); // Min 6 char, 1 number, 1 special char
+    let isValidPass = passValue.match(passRegexCombined); // Min 6 char, 1 number, 1 special char
 
     let errorDiv = document.getElementById("error-div-password");
     let invalidMessage = document.getElementById("invalid-message-password");
@@ -217,7 +222,23 @@ function createRequirements(identifier) {
         p.appendChild(details);
     }
     else if (identifier == "password") {
+        let passValue = passField.value;
         PassRequirements.classList.remove("hidden");
+        if (passValue.match(passRegexChar)) {
+            document.getElementById("minChar").classList.add("correct");
+        } else {
+            document.getElementById("minChar").classList.remove("correct");
+        }
+        if (passValue.match(passRegexNum)) {
+            document.getElementById("minNum").classList.add("correct");
+        } else {
+            document.getElementById("minNum").classList.remove("correct");
+        }
+        if (passValue.match(passRegexSymbol)) {
+            document.getElementById("minSpec").classList.add("correct");
+        } else {
+            document.getElementById("minSpec").classList.remove("correct");
+        }
     }
     return p;
 }
@@ -258,5 +279,7 @@ function validateForm() {
 
 function nerd() {
     let x = document.getElementById("background");
+    //x.style.backgroundImage = "url(https://drive.google.com/uc?export=view&id=1PuKJfjn1qixiHUoyK6hyWkBxJ0VK2MIs)";
     x.style.backgroundImage = "url(https://media1.tenor.com/m/xCc58fEqFREAAAAd/nerd-nerdy.gif)";
+
 }
