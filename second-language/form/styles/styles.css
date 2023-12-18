@@ -69,7 +69,6 @@ body {
     .login-panel {
         height: 100%;
         width: 100%;
-        filter: opacity(50%);
     }
 }
 
