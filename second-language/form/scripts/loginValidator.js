@@ -1,10 +1,12 @@
+// example@domain.com
 const emailRegex = /[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+(?:\.[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+)*@(?:[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?/i;
+// 6 characters, allow only "-" and "_"
 const userRegex = /^[a-z0-9_-]{6,32}$/i; // https://stackoverflow.com/questions/12018245/regular-expression-to-validate-username
+// 6 characters total, 1 digit, 1 special symbol (!@#$%^&*_-)
 const passRegexCombined = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*_-])[A-Za-z\d!@#$%^&*_-]{6,128}$/i;
 const passRegexChar = /[A-Za-z\d!@#$%^&*_-]{6,128}/gm
 const passRegexNum = /\d/mi
 const passRegexSymbol = /[!@#$%^&*_-]/m
-
 
 var isInvalidEmail = false;
 var isInvalidUsername = false;
@@ -20,6 +22,7 @@ var tosCheck = document.getElementById("TOScheckbox");
 var submitButton = document.getElementById("submit-field");
 var PassRequirements = document.getElementById("PassRequirements");
 
+// Removes warnings when form is clicked.
 if (usernameField) {
     usernameField.addEventListener('click', function () {
         isUsernameFieldFocused = true;
@@ -67,6 +70,7 @@ function validateUsername() {
     let errorDiv = document.getElementById("error-div-username");
     let invalidMessage = document.getElementById("invalid-message-username");
     let checkDiv = document.getElementById("check-div-username");
+    // When field is focused
     if (isUsernameFieldFocused) {
         isInvalidUsername = false
         usernameField.classList.remove("valid-border")
@@ -75,6 +79,7 @@ function validateUsername() {
         if (errorDiv) { errorDiv.remove(); }
         if (invalidMessage) { invalidMessage.remove(); }
     }
+    // When field is unfocused and user has typed invalid inputs
     else if (isValidUsername === null && !isInvalidUsername && !isUsernameFieldFocused && usernameValue != "") {
         isInvalidUsername = true;
         usernameField.classList.add("invalid-border");
@@ -83,6 +88,7 @@ function validateUsername() {
         if (!errorDiv) usernameField.after(createCross("username"));
         if (checkDiv) { checkDiv.remove(); }
     }
+    // When field is unfocused and user has typed valid inputs
     else if (isValidUsername !== null && !isUsernameFieldFocused) {
         isInvalidUsername = false;
         usernameField.classList.add("valid-border");
@@ -190,6 +196,7 @@ function validatePassword() {
     return false;
 }
 
+// Creates animated error cross
 function createCross(identifier) {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("id", `error-div-${identifier}`);
@@ -209,6 +216,7 @@ function createCross(identifier) {
     return svg;
 }
 
+// Creates animated checkmark
 function createCheck(identifier) {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("id", `check-div-${identifier}`);
@@ -224,6 +232,7 @@ function createCheck(identifier) {
 }
 
 // https://www.w3schools.com/howto/howto_js_password_validation.asp
+// Creates requirements for specified input field
 function createRequirements(identifier) {
     const p = document.createElement("p");
     const text = document.createTextNode(`Invalid ${identifier}. `);
@@ -247,6 +256,7 @@ function validateForm() {
     let formEmail = document.getElementById("EmailForm");
     let formPass = document.getElementById("PassForm");
     let tosElement = document.getElementById("tos");
+    // Shakes invalid fields
     if (!validateUsername()) {
         formUsername.classList.remove("border-shake");
         void formUsername.offsetWidth;
@@ -267,6 +277,7 @@ function validateForm() {
         void tosElement.offsetWidth;
         tosElement.classList.add("border-shake");
     }
+    // If all fields valid
     if (validateUsername() && validateEmail() && validatePassword() && tosCheck.checked && !isAccountCreated) {
         isAccountCreated = true;
         let p = document.createElement("p");
@@ -280,5 +291,4 @@ function nerd() {
     let x = document.getElementById("background");
     //x.style.backgroundImage = "url(https://drive.google.com/uc?export=view&id=1PuKJfjn1qixiHUoyK6hyWkBxJ0VK2MIs)";
     x.style.backgroundImage = "url(https://media1.tenor.com/m/xCc58fEqFREAAAAd/nerd-nerdy.gif)";
-
 }
