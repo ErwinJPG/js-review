@@ -1,9 +1,9 @@
 const emailRegex = /[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+(?:\.[-A-Za-z0-9!#$%&'*+\/=?^_`{|}~]+)*@(?:[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[-A-Za-z0-9]*[A-Za-z0-9])?/i;
 const userRegex = /^[a-z0-9_-]{6,32}$/i; // https://stackoverflow.com/questions/12018245/regular-expression-to-validate-username
-const passRegexCombined = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,128}$/i;
-const passRegexChar = /[A-Za-z\d#@$!%*?&]{6,128}/gm
+const passRegexCombined = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*_-])[A-Za-z\d!@#$%^&*_-]{6,128}$/i;
+const passRegexChar = /[A-Za-z\d!@#$%^&*_-]{6,128}/gm
 const passRegexNum = /\d/mi
-const passRegexSymbol = /[!@#$%^&*]/m
+const passRegexSymbol = /[!@#$%^&*_-]/m
 
 
 var isInvalidEmail = false;
@@ -169,6 +169,24 @@ function validatePassword() {
         if (PassRequirements) { PassRequirements.classList.add("hidden") }
         return true;
     }
+    if (passValue != "") {
+        PassRequirements.classList.remove("hidden");
+        if (passValue.match(passRegexChar)) {
+            document.getElementById("minChar").classList.add("correct");
+        } else {
+            document.getElementById("minChar").classList.remove("correct");
+        }
+        if (passValue.match(passRegexNum)) {
+            document.getElementById("minNum").classList.add("correct");
+        } else {
+            document.getElementById("minNum").classList.remove("correct");
+        }
+        if (passValue.match(passRegexSymbol)) {
+            document.getElementById("minSpec").classList.add("correct");
+        } else {
+            document.getElementById("minSpec").classList.remove("correct");
+        }
+    }
     return false;
 }
 
@@ -220,25 +238,6 @@ function createRequirements(identifier) {
     else if (identifier == "email") {
         let details = document.createTextNode("Do you not know what email is?");
         p.appendChild(details);
-    }
-    else if (identifier == "password") {
-        let passValue = passField.value;
-        PassRequirements.classList.remove("hidden");
-        if (passValue.match(passRegexChar)) {
-            document.getElementById("minChar").classList.add("correct");
-        } else {
-            document.getElementById("minChar").classList.remove("correct");
-        }
-        if (passValue.match(passRegexNum)) {
-            document.getElementById("minNum").classList.add("correct");
-        } else {
-            document.getElementById("minNum").classList.remove("correct");
-        }
-        if (passValue.match(passRegexSymbol)) {
-            document.getElementById("minSpec").classList.add("correct");
-        } else {
-            document.getElementById("minSpec").classList.remove("correct");
-        }
     }
     return p;
 }
