@@ -8,12 +8,20 @@ body {
     /* https://imagecolorpicker.com/color-code/8878c3 */
     /* https://imagecolorpicker.com/color-code/fbebeb */
     /* https://webflow.com/blog/web-design-portfolios */
-    
     background: #aca1d5;
     font-family: "Bebas Nueue Regular", bebas-nueue;
     font-size: 16px;
     color: #36304e;
-    height: 10000px;
+}
+
+.footer {
+    display: block;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: smaller;
 }
 
 .content {}
