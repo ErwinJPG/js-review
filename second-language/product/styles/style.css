@@ -1,0 +1,38 @@
+@font-face {
+    /* https://www.1001fonts.com/bebas-neue-font.html */
+    font-family: bebas-nueue;
+    src: url(../fonts/bebas-neue.regular.otf);
+}
+
+body {
+    /* https://imagecolorpicker.com/color-code/8878c3 */
+    /* https://imagecolorpicker.com/color-code/fbebeb */
+    /* https://webflow.com/blog/web-design-portfolios */
+    
+    background: #aca1d5;
+    font-family: "Bebas Nueue Regular", bebas-nueue;
+    font-size: 16px;
+    color: #36304e;
+    height: 10000px;
+}
+
+.content {}
+
+/* START TOP PANEL */
+
+.top-panel {
+    display: block;
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    border-bottom: 3px #36304e solid;
+}   
+
+.top-header {
+    text-align: center;
+    font-size: xx-large;
+    margin: 5px;
+}
+
+/* END TOP PANEL */
