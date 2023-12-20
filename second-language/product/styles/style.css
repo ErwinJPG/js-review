@@ -15,10 +15,10 @@ body {
 
     /* Purple is tiring to look at */
     /* Consider yellow-black theme */
-    background: #aca1d5;
+    background-color: #fff;
     font-family: "Bebas Nueue Regular", bebas-nueue;
     font-size: 16px;
-    color: #36304e;
+    color: black;
 }
 
 .footer {
@@ -29,6 +29,10 @@ body {
     width: 100%;
     text-align: center;
     font-size: smaller;
+}
+
+.footer p {
+    margin: 0px;
 }
 
 .content {}
@@ -43,7 +47,7 @@ body {
     margin: auto;
     top: 0;
     left: 0;
-    border-bottom: 3px #36304e solid;
+    border-bottom: 3px black solid;
 }   
 
 .top-header {
@@ -57,14 +61,19 @@ body {
 /* START PRODUCT SHELF */
 
 .product-shelf {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: block;
-    padding-top: 4rem;
+    width: 50%;
+    margin: auto;
 }
 
 .column {
     float: left;
     width: 33.33%;
-    padding: 10px;
+    padding: 5px;
     height: auto; /* Should be removed. Only for demonstration */
 }
 
@@ -85,16 +94,31 @@ body {
 /* START PRODUCT LAYOUT */
 
 .product-layout {
-    border: 1px #36304e solid;
+    display: block;
+    width: 201px;
+    height: auto;
+    margin: auto;
+    border: 1px black solid;
 }
 
 .product-image {
-    width: 33.33%;
-    height: auto;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-image img {
+    height: 175px;
+    width: 175px;
+    object-fit: contain;
 }
 
 .product-details {
-    border-top: 1px #36304e solid;
+    padding: 2px;
+    padding-left: 5px;
+    border-top: 1px black solid;
+    overflow-wrap: break-word;
 }
 
 .product-name {
@@ -102,4 +126,7 @@ body {
 
 .product-description {
 
+}
+
+.product-cost {
 }

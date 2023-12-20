@@ -14,7 +14,8 @@ for (let i = 0; i < 2; i++) {
         // Make product name div with class "pName". Set innerHTML to products[pNum].name; Append to column.
         // Add an onclick event to column, to trigger a modal popup box to appear
         let newColumn = document.createElement("div");
-        let newProduct = createNewProduct(products[pNum].name, products[pNum].description, products[pNum].image_url);
+        let newProduct = createNewProduct(  products[pNum].name, products[pNum].description, 
+                                            products[pNum].image_url, products[pNum].price);
         pNum += 1
         
         newColumn.classList.add("column");
@@ -31,13 +32,13 @@ function createNewRow() {
     return newRow;
 }
 
-function createNewProduct(name, description, image) {
+function createNewProduct(name, description, image, cost) {
     let mainDiv = document.createElement("div");
     mainDiv.setAttribute("id", "product");
     mainDiv.classList.add("product-layout");
 
     let productImage = createProductImage(image);
-    let productDetails = createProductDetails(name, description);
+    let productDetails = createProductDetails(name, description, cost);
 
     mainDiv.appendChild(productImage);
     mainDiv.appendChild(productDetails);
@@ -63,19 +64,23 @@ function createProductImage(image) {
     return imgDiv;
 }
 
-function createProductDetails(name, description) {
+function createProductDetails(name, description, cost) {
     let detailsDiv = document.createElement("div");
     let productName = document.createElement("p");
     let productDescription = document.createElement("p");
+    let productPrice = document.createElement("p");
 
     detailsDiv.classList.add("product-details");
     productName.classList.add("product-name");
     productName.innerHTML = name;
     productDescription.classList.add("product-description");
     productDescription.innerHTML = description;
+    productPrice.classList.add("product-cost");
+    productPrice.innerHTML = `$${cost}`;
     
     detailsDiv.appendChild(productName);
     detailsDiv.appendChild(productDescription);
+    detailsDiv.appendChild(productPrice);
 
     return detailsDiv;
 }
