@@ -95,10 +95,15 @@ body {
 
 .product-layout {
     display: block;
-    width: 201px;
+    width: 200px;
     height: auto;
     margin: auto;
     border: 1px black solid;
+    transition: all .2s ease-in-out;
+}
+
+.product-layout:hover {
+    transform: scale(1.05);
 }
 
 .product-image {
@@ -122,10 +127,11 @@ body {
 }
 
 .product-name {
+    font-size: larger;
 }
 
 .product-description {
-
+    font-size: regular;
 }
 
 .product-cost {

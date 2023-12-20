@@ -15,7 +15,7 @@ var products = [
         },
         {
             "name": "Honda Civic 2006",
-            "description": "Blasting dembow in residential zones since 2006",
+            "description": "Includes catless downpipe.",
             "model_number": 2,
             "image_url": "https://www.motortrend.com/uploads/sites/10/2015/11/2006-honda-civic-hybrid-hybrid-automatic-sedan-angular-front.png?fit=around%7C875:492",
             "price": 2000

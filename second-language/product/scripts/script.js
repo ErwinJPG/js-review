@@ -54,11 +54,11 @@ function createProductImage(image) {
     imgDiv.classList.add("product-image");
     //img.setAttribute("src", "https://placehold.co/200x150");
     img.setAttribute("src", image);
-    img.setAttribute("alt", "product image");
-    img.setAttribute("title", "product image");
+    img.setAttribute("alt", "");
+    img.setAttribute("title", "");
     link.setAttribute("href", "#");
 
-    imgDiv.appendChild(img);
+    link.appendChild(img);
     imgDiv.appendChild(link);
     
     return imgDiv;
