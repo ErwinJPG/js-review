@@ -4,6 +4,10 @@
     src: url(../fonts/bebas-neue.regular.otf);
 }
 
+* {
+    box-sizing: border-box;
+  }
+
 body {
     /* https://imagecolorpicker.com/color-code/8878c3 */
     /* https://imagecolorpicker.com/color-code/fbebeb */
@@ -57,24 +61,40 @@ body {
     padding-top: 4rem;
 }
 
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: auto; /* Should be removed. Only for demonstration */
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+}
+
 /* END PRODUCT SHELF */
 
 /* START PRODUCT LAYOUT */
 
 .product-layout {
-    width: 200px;
-    float: left;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
+    border: 1px #36304e solid;
 }
 
 .product-image {
+    width: 33.33%;
+    height: auto;
 }
 
 .product-details {
-    min-height: 150px;
-    border: 3px black solid;
+    border-top: 1px #36304e solid;
 }
 
 .product-name {
