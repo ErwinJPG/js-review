@@ -33,10 +33,12 @@ body {
 
 .top-panel {
     display: block;
-    position: fixed;
+    position: relative;
+    height: 3rem;
     width: 100%;
     margin: auto;
     top: 0;
+    left: 0;
     border-bottom: 3px #36304e solid;
 }   
 
@@ -47,3 +49,37 @@ body {
 }
 
 /* END TOP PANEL */
+
+/* START PRODUCT SHELF */
+
+.product-shelf {
+    display: block;
+    padding-top: 4rem;
+}
+
+/* END PRODUCT SHELF */
+
+/* START PRODUCT LAYOUT */
+
+.product-layout {
+    width: 200px;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.product-image {
+}
+
+.product-details {
+    min-height: 150px;
+    border: 3px black solid;
+}
+
+.product-name {
+}
+
+.product-description {
+
+}
