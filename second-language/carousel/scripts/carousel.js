@@ -15,4 +15,4 @@ function hideBars() {
             cinebars[i].classList.add("popout-bars");
         }  
     }
-}
+}z
