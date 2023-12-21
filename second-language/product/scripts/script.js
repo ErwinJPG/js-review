@@ -34,7 +34,7 @@ function createNewRow() {
 
 function createNewProduct(name, description, image, cost) {
     let mainDiv = document.createElement("div");
-    mainDiv.setAttribute("id", "product");
+    mainDiv.setAttribute("id", `product-${pNum}`);
     mainDiv.classList.add("product-layout");
 
     let productImage = createProductImage(image);

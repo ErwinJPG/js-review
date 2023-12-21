@@ -3,29 +3,29 @@ var products = [
             "name": "Audeze LCD-2",
             "description": "Best use of magnets over MRIs.",
             "model_number": 0,
-            "image_url": "https://cdn11.bigcommerce.com/s-n6ph1wi/images/stencil/1280x1280/products/392/4768/hfh_lcd2__73037.1640710179.png",
+            "image_url": "images/lcd2.webp",
             "price": 995.00
         },
         {
             "name": "Sennheiser HD 800 S",
             "description": "Costs more than a Civic.",
             "model_number": 1,
-            "image_url": "https://m.media-amazon.com/images/I/710Zn2k1hLL._AC_SX425_.jpg",
+            "image_url": "images/senn.jpg",
             "price": 2399.95
         },
         {
             "name": "Honda Civic 2006",
             "description": "Includes catless downpipe.",
             "model_number": 2,
-            "image_url": "https://www.motortrend.com/uploads/sites/10/2015/11/2006-honda-civic-hybrid-hybrid-automatic-sedan-angular-front.png?fit=around%7C875:492",
+            "image_url": "images/civic.webp",
             "price": 2000
         },
         {
-            "name": "Item4",
-            "description": "Item4 description",
+            "name": "Sennheiser HD 599",
+            "description": "I love this thing.",
             "model_number": 3,
-            "image_url": "https://placehold.co/200x200",
-            "price": 200
+            "image_url": "images/hd599.png",
+            "price": 259.95
         },
         {
             "name": "Item5",
