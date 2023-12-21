@@ -15,6 +15,7 @@ body {
 
     /* Purple is tiring to look at */
     /* Consider yellow-black theme */
+    height: 100%;
     background-color: #fff;
     font-family: "Bebas Nueue Regular", bebas-nueue;
     font-size: 16px;
@@ -24,7 +25,7 @@ body {
 
 .footer {
     display: block;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -52,7 +53,7 @@ body {
     top: 0;
     left: 0;
     border-bottom: 3px black solid;
-    z-index: 999;
+    z-index: 1;
 }   
 
 .top-header {
@@ -66,22 +67,21 @@ body {
 /* START PRODUCT SHELF */
 
 .product-shelf {
-    position: absolute; 
-    left: 0; 
-    right: 0; 
+    position: relative;     
     margin-left: auto; 
     margin-right: auto; 
     display: block;
     height: auto;
     z-index: 1;
     margin-top: 0px;
-    margin-bottom: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
 }
 
 .column {
     float: left;
     width: 33.33%;
-    padding: 5px;
+    padding: 6px;
 }
 
 .row {
@@ -106,18 +106,16 @@ body {
 /* START BILLBOARD */
 
 .billboard-image img {
-    background-image: url(../images/lineart.png);
+    background-color: #fff;
     height: 442px;
     width: 100%;
     margin-top: 39px;
-    margin-left: auto;
-    margin-right: auto;
     object-fit: none;
     background-repeat: no-repeat;
     border: none;
 }
 
-@media screen and (max-height: 1000px) {
+@media screen and (max-height: 480px) {
     .billboard-image {
         display: none;
     }
@@ -138,11 +136,10 @@ body {
     transition: all .2s ease-in-out;
     background-color: #fff;
     text-align: center;
-    
 }
 
 .product-layout:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 .product-image {
@@ -177,3 +174,62 @@ body {
 
 .product-cost {
 }
+
+/* Start Modal Panel */
+
+.modal-panel {
+    width:  45%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    background-color: #fff;
+    border-left: 3px #000 solid;
+    margin: auto;
+    z-index: 2;
+}
+
+.modal-exit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+}
+
+.modal-layout {
+    margin: 40px;
+}
+
+.selected-product{
+    display: block;
+    width: 100%;
+    height: 100px;
+}
+
+.selected-product-image {
+    float: left;
+}
+
+.selected-product-details { 
+    margin-left: 100px;
+    padding: 10px;
+}
+
+.selected-product-details .product-name { 
+    margin: 0px;
+}
+
+.checkout-details {
+    margin-top: 50px;
+} 
+
+.checkout-details p {
+    line-height: 0px;
+}
+
+.shade {
+    backdrop-filter: blur(5px);
+}
+
+/* End Modal Panel */

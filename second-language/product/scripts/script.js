@@ -39,6 +39,7 @@ function createNewProduct(name, description, image, cost) {
 
     let productImage = createProductImage(image);
     let productDetails = createProductDetails(name, description, cost);
+    let modalPanel = createModalPanel();
 
     mainDiv.appendChild(productImage);
     mainDiv.appendChild(productDetails);
@@ -56,6 +57,7 @@ function createProductImage(image) {
     img.setAttribute("src", image);
     img.setAttribute("alt", "");
     img.setAttribute("title", "");
+    img.setAttribute("draggable", "false");
     link.setAttribute("href", "#");
 
     link.appendChild(img);
@@ -83,4 +85,15 @@ function createProductDetails(name, description, cost) {
     detailsDiv.appendChild(productPrice);
 
     return detailsDiv;
+}
+
+// BEGIN MODAL PANEL
+
+function createModalPanel() {
+    let panelDiv = document.createElement("div");
+
+    panelDiv.classList.add("modal-panel");
+    panelDiv.id = "modal-panel";
+
+    return panelDiv;
 }
