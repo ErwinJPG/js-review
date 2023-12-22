@@ -15,7 +15,6 @@ body {
 
     /* Purple is tiring to look at */
     /* Consider yellow-black theme */
-    height: 100%;
     background-color: #fff;
     font-family: "Bebas Nueue Regular", bebas-nueue;
     font-size: 16px;
@@ -25,7 +24,7 @@ body {
 
 .footer {
     display: block;
-    position: relative;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -67,15 +66,12 @@ body {
 /* START PRODUCT SHELF */
 
 .product-shelf {
-    position: relative;     
-    margin-left: auto; 
-    margin-right: auto; 
-    display: block;
-    height: auto;
+    position: relative;
+    margin: auto;
+    margin-top: 8rem;
+    margin-left: 60px;
+    margin-right: 60px;
     z-index: 1;
-    margin-top: 0px;
-    padding-left: 60px;
-    padding-right: 60px;
 }
 
 .column {
@@ -105,14 +101,15 @@ body {
 
 /* START BILLBOARD */
 
+.billboard-image {
+    margin: 47px;
+    margin-bottom: 0px;
+}
+
 .billboard-image img {
-    background-color: #fff;
-    height: 442px;
-    width: 100%;
-    margin-top: 39px;
-    object-fit: none;
+    padding-right: 6%;
+    object-fit: contain;
     background-repeat: no-repeat;
-    border: none;
 }
 
 @media screen and (max-height: 480px) {
@@ -177,75 +174,11 @@ body {
 
 /* Start Modal Panel */
 
-.modal-panel {
-    width:  45%;
-    min-height: 100%;
+.details-drawer {
     position: absolute;
     top: 0;
-    bottom: 0;
-    right: 0px;
+    right: 0;
+    width: 65%;
+    height: max-content;
     background-color: #fff;
-    border-left: 3px #000 solid;
-    margin: auto;
-    z-index: 2;
-}
-
-.modal-exit {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 15px;
-}
-
-.modal-layout {
-    margin: 40px;
-}
-
-.selected-product{
-    display: block;
-    width: 100%;
-    height: 100px;
-}
-
-.selected-product-image {
-    float: left;
-}
-
-.selected-product-details { 
-    margin-left: 100px;
-    padding: 10px;
-}
-
-.selected-product-details .product-name { 
-    margin: 0px;
-}
-
-.checkout-details {
-    margin-top: 50px;
-} 
-
-.checkout-details p {
-    line-height: 0px;
-}
-
-.shade {
-    backdrop-filter: blur(5px);
-}
-
-/* End Modal Panel */
-
-.filter-backdrop {
-    width:  55%;
-    min-height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.content {
-    filter: blur(2px);
 }
