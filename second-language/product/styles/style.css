@@ -174,11 +174,65 @@ body {
 
 /* Start Modal Panel */
 
-.details-drawer {
+.checkout-drawer {
+    display: block;
     position: absolute;
     top: 0;
     right: 0;
-    width: 65%;
-    height: max-content;
+    width: 45%;
+    height: 100vh;
+    z-index: 999;
     background-color: #fff;
+}
+
+.checkout-layout {
+    margin: 40px;
+    text-align: left;
+}
+
+.open-drawer {
+    animation: slide 0.75s ease-in-out 1 forwards;
+    overflow-x: hidden;
+}
+
+@keyframes slide {
+    from {transform: translateX(100%);}
+    to {transform: translateX(0);}
+}
+
+.selected-product-image {
+    float: left;
+}
+
+.selected-product-details {
+    position: relative;
+    height: 100px;
+    width: 80%;
+    padding: 10px;
+    padding-left: 110px;
+    border: 1px #000 solid;
+}
+
+.selected-product-details p, h3 {
+    margin: 0;
+}
+
+.selected-product-title {
+    padding-bottom: 5px;
+}   
+
+.selected-product-description {
+
+}
+
+.selected-product-price {
+}
+
+.price-breakdown {
+    height: 100%;
+    padding-top: 100px;
+}
+
+.price-breakdown h3, p, h2 {
+    margin: 0;
 }
