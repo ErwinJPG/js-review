@@ -28,11 +28,11 @@ var products = [
             "price": 259.95
         },
         {
-            "name": "Item5",
+            "name": "Hifiman SUSVARA",
             "description": "Item5 description",
             "model_number": 4,
-            "image_url": "https://placehold.co/200x200",
-            "price": 250
+            "image_url": "images/sus.jpg",
+            "price": 6000
         },
         {
             "name": "Item6",
