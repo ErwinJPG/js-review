@@ -1,8 +1,8 @@
 // For each row we want to make
 let pNum = 0;
 for (let i = 0; i < 2; i++) {
-    // Make a new row with class "row" and append to "main-div"
-    let mainDiv = document.getElementById("main-div")
+    // Make a new row with class "row" and append to "product-shelf"
+    let mainDiv = document.getElementById("product-shelf")
     let newRow = createNewRow();
 
     mainDiv.appendChild(newRow);
@@ -16,12 +16,12 @@ for (let i = 0; i < 2; i++) {
         let newColumn = document.createElement("div");
         let newProduct = createNewProduct(  products[pNum].name, products[pNum].description, 
                                             products[pNum].image_url, products[pNum].price);
-        pNum += 1
         
         newColumn.classList.add("column");
 
         newRow.appendChild(newColumn);
         newColumn.appendChild(newProduct);
+        pNum += 1
     }
 } 
 
@@ -39,7 +39,10 @@ function createNewProduct(name, description, image, cost) {
 
     let productImage = createProductImage(image);
     let productDetails = createProductDetails(name, description, cost);
-    let modalPanel = createModalPanel();
+
+    mainDiv.addEventListener("click", function() {
+        showModalPanel(name, description, image, cost);
+    })
 
     mainDiv.appendChild(productImage);
     mainDiv.appendChild(productDetails);
@@ -89,11 +92,25 @@ function createProductDetails(name, description, cost) {
 
 // BEGIN MODAL PANEL
 
-function createModalPanel() {
-    let panelDiv = document.createElement("div");
+function showModalPanel(name, description, image, cost) {
+    let modalDiv = document.getElementById("checkout-drawer");
+    let productImage = document.getElementById("selected-product-image");
+    let productTitle = document.getElementById("selected-product-title");
+    let productDescription = document.getElementById("selected-product-description");
+    let productPrice = document.getElementById("selected-product-price");
+    let mainDiv = document.getElementById("main-div").children;
+    modalDiv.classList.remove("hidden");
+    modalDiv.classList.add("open-drawer");
 
-    panelDiv.classList.add("modal-panel");
-    panelDiv.id = "modal-panel";
+    productImage.setAttribute("src", image);
+    productTitle.innerHTML = name;
+    productDescription.innerHTML = description;
+    productPrice.innerHTML = `$${cost}`;
 
-    return panelDiv;
+    console.log(name, description, image, cost);
+    for (let i = 0; i < mainDiv.length; i++) {
+        mainDiv[i].classList.add("blur");
+    }
+
+    return modalDiv;
 }

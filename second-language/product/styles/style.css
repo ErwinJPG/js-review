@@ -22,6 +22,10 @@ body {
     overflow: auto;
 }
 
+body, html {
+    overflow-x: hidden;
+}
+
 .footer {
     display: block;
     position: absolute;
@@ -183,6 +187,13 @@ body {
     height: 100vh;
     z-index: 999;
     background-color: #fff;
+    border: 1px #000 solid;
+}
+
+@media (max-width: 700px) {
+    .checkout-drawer {
+      width: 100%;
+    }
 }
 
 .checkout-layout {
@@ -192,22 +203,37 @@ body {
 
 .open-drawer {
     animation: slide 0.75s ease-in-out 1 forwards;
-    overflow-x: hidden;
 }
 
+.blur {
+    animation: blur 0.75s ease-in-out 1 forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Breaks for mobile as translation overflows to sides*/
 @keyframes slide {
     from {transform: translateX(100%);}
-    to {transform: translateX(0);}
+    to {transform: translateX(0%);}
+}
+
+@keyframes blur {
+    from {filter: blur(0px);}
+    to {filter: blur(3px);}
 }
 
 .selected-product-image {
+    width: 100px;
+    height: 100px;
     float: left;
 }
 
 .selected-product-details {
     position: relative;
     height: 100px;
-    width: 80%;
+    width: 100%;
     padding: 10px;
     padding-left: 110px;
     border: 1px #000 solid;
