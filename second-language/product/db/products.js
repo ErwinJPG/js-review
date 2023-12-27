@@ -3,7 +3,7 @@ var products = [
             "name": "beyerdynamic DT 990 Pro",
             "description": "Entry-level audiophile headphones",
             "model_number": 2,
-            "image_url": "images/beyer.jpg",
+            "image_url": "images/beyer.png",
             "price": 230
         },
         {
@@ -17,7 +17,7 @@ var products = [
             "name": "Audeze LCD-2",
             "description": "Best use of magnets over MRIs.",
             "model_number": 0,
-            "image_url": "images/lcd2.webp",
+            "image_url": "images/lcd2.png",
             "price": 995.00
         },
         {
@@ -31,14 +31,14 @@ var products = [
             "name": "Sennheiser HD 800 S",
             "description": "Costs more than a Civic.",
             "model_number": 1,
-            "image_url": "images/senn.jpg",
+            "image_url": "images/senn.png",
             "price": 2399.95
         },
         {
             "name": "Hifiman SUSVARA",
             "description": "Holy grail of headphones.",
             "model_number": 4,
-            "image_url": "images/sus.jpg",
+            "image_url": "images/sus.png",
             "price": 6000
         }
     ]

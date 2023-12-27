@@ -25,23 +25,14 @@ var render = Render.create({
 });
 
 // create two boxes and a ground
-var boxA = Bodies.circle(400, 200, 80, {
-    render: {
-        sprite : {
-            texture: "images/sus.jpg",
-            xScale: 0.21,
-            yScale: 0.21
-        }
-    }
-});
 var ground = Bodies.rectangle(  window.innerWidth / 2,
-                                window.innerHeight / 2, 
+                                window.innerHeight, 
                                 window.innerWidth, 
                                 60, 
                                 { isStatic: true });
 
 // add all of the bodies to the world
-Composite.add(engine.world, [boxA, ground]);
+Composite.add(engine.world, [ground]);
 
 const mouse = Matter.Mouse.create(render.canvas);
 const mouseConstraint = Matter.MouseConstraint.create(engine, {

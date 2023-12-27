@@ -27,9 +27,6 @@ for (let i = 0; i < 2; i++) {
     }
 } 
 
-let overlayDiv = document.getElementById("modal-overlay");
-overlayDiv.addEventListener("click", hideModalPanel)
-
 function createNewRow() {
     let newRow = document.createElement("div");
     newRow.classList.add("row");
@@ -46,7 +43,7 @@ function createNewProduct(name, description, image, cost) {
     let productDetails = createProductDetails(name, description, cost);
 
     mainDiv.addEventListener("click", function() {
-        showModalPanel(name, description, image, cost);
+        showModalPanel(mainDiv, image);
     })
 
     mainDiv.appendChild(productImage);
@@ -97,31 +94,22 @@ function createProductDetails(name, description, cost) {
 
 // BEGIN MODAL PANEL
 
-function showModalPanel(name, description, image, cost) {
-    let modalDiv = document.getElementById("checkout-drawer");
-    let productImage = document.getElementById("selected-product-image");
-    let productTitle = document.getElementById("selected-product-title");
-    let productDescription = document.getElementById("selected-product-description");
-    let productPrice = document.getElementById("selected-product-price");
-    let mainDiv = document.getElementById("main-div").children;
-
-    isModalShown = true;
-    overlayDiv.classList.remove("hidden")
-
-    modalDiv.classList.remove("hidden");
-    modalDiv.classList.add("open-drawer");
-
-    productImage.setAttribute("src", image);
-    productTitle.innerHTML = name;
-    productDescription.innerHTML = description;
-    productPrice.innerHTML = `$${cost}`;
-
-    console.log(name, description, image, cost);
-    for (let i = 0; i < mainDiv.length; i++) {
-        mainDiv[i].classList.add("blur");
-    }
-    console.log(isModalShown)
-    return modalDiv;
+function showModalPanel(elementDiv, image) {
+    elementDiv.classList.remove("border-shake");
+    void elementDiv.offsetWidth;
+    elementDiv.classList.add("border-shake");
+    console.log(image.naturalWidth, image.naturalHeight)
+    var physicsObj = Bodies.circle(400, 0, 100, {
+        render: {
+            sprite : {
+                texture: image,
+                xScale: 0.21,
+                yScale: 0.21
+            }
+        },
+        restitution: 0.8
+    });
+    Composite.add(engine.world, [physicsObj, ground]);
 }
 
 function hideModalPanel() {
