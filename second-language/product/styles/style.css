@@ -201,6 +201,15 @@ body, html {
     text-align: left;
 }
 
+.exit-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+    width: 15px;
+    height: 15px;
+}
+
 .modal-overlay {
     position: absolute;
     top: 0;
@@ -211,15 +220,16 @@ body, html {
 }
 
 .open-drawer {
-    animation: slide-in 0.6s ease-in-out 1 forwards;
+    animation: slide-in 0.5s ease-in 1 forwards;
 }
 
+/* Too harsh when closing modal. */
 .close-drawer {
-    animation: slide-out 0.6s ease-in-out 1 forwards;
+    animation: slide-out 0.5s ease-in 1 forwards;
 }
 
 .blur {
-    animation: blur 0.6s ease-in-out 1 forwards;
+    animation: blur 0.5s ease-in-out 1 forwards;
 }
 
 .hidden {
@@ -239,7 +249,7 @@ body, html {
 
 @keyframes blur {
     from {filter: blur(0px);}
-    to {filter: blur(3px);}
+    to {filter: blur(2px);}
 }
 
 .selected-product-image {
@@ -280,4 +290,9 @@ body, html {
 
 .price-breakdown h3, p, h2 {
     margin: 0;
+}
+
+/* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+.buy-slider {
+    width: 100%;
 }
