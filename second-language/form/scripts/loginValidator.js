@@ -8,13 +8,14 @@ const passRegexChar = /[A-Za-z\d!@#$%^&*_-]{6,128}/gm
 const passRegexNum = /\d/mi
 const passRegexSymbol = /[!@#$%^&*_-]/m
 
-var isInvalidEmail = false;
-var isInvalidUsername = false;
-var isInvalidPass = false;
-var isAccountCreated = false;
-var isUsernameFieldFocused = false;
-var isEmailFieldFocused = false;
-var isPassFieldFocused = false;
+var isInvalidEmail;
+var isInvalidUsername;
+var isInvalidPass;
+var isAccountCreated;
+var isUsernameFieldFocused;
+var isEmailFieldFocused;
+var isPassFieldFocused;
+
 var usernameField = document.getElementById("UsernameField");
 var emailField = document.getElementById("EmailField");
 var passField = document.getElementById("PassField");
@@ -63,6 +64,7 @@ if (passField) {
     });
 }
 
+// ewwww
 function validateUsername() {
     let usernameValue = usernameField.value;
     let isValidUsername = usernameValue.match(userRegex); // 6 characters, no special characters except -_
@@ -256,6 +258,7 @@ function validateForm() {
     let formEmail = document.getElementById("EmailForm");
     let formPass = document.getElementById("PassForm");
     let tosElement = document.getElementById("tos");
+    
     // Shakes invalid fields
     if (!validateUsername()) {
         formUsername.classList.remove("border-shake");
@@ -289,6 +292,5 @@ function validateForm() {
 
 function nerd() {
     let x = document.getElementById("background");
-    //x.style.backgroundImage = "url(https://drive.google.com/uc?export=view&id=1PuKJfjn1qixiHUoyK6hyWkBxJ0VK2MIs)";
     x.style.backgroundImage = "url(https://media1.tenor.com/m/xCc58fEqFREAAAAd/nerd-nerdy.gif)";
 }

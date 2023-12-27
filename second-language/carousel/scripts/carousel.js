@@ -8,18 +8,19 @@ var images = [
 let slideIndex = 1;
 addNewSlides()
 
+// Iterates through images array and appends respective slides
+// 
 function addNewSlides() {
     let index = 0;
     let slidesDiv = document.getElementById("slides");
     let dotsDiv = document.getElementById("dots");
     images.forEach((image) => {
         slidesDiv.before(createNewSlide(image, index + 1));
-        dotsDiv.appendChild(createNewDot(index));
+        dotsDiv.appendChild(createNewDot(index + 1));
         index += 1;
     })
     showSlides(slideIndex);
 }
-
 
 function createNewSlide(image_url, index) {
     let mainDiv = document.createElement("div");

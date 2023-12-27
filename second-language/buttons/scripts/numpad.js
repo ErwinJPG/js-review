@@ -19,6 +19,7 @@ function play_dial(num) {
     let file = `sounds/dialpad/${num}.mp3`;
 
     soundPlayer.src = file; // <-- Find audio
+    soundPlayer.volume = 0.1;
     soundPlayer.preservesPitch = false;
     soundPlayer.playbackRate = 1;
     soundPlayer.play();

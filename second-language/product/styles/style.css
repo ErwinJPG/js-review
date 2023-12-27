@@ -201,12 +201,25 @@ body, html {
     text-align: left;
 }
 
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;
+    height: 100%;
+    z-index: 999;
+}
+
 .open-drawer {
-    animation: slide 0.75s ease-in-out 1 forwards;
+    animation: slide-in 0.6s ease-in-out 1 forwards;
+}
+
+.close-drawer {
+    animation: slide-out 0.6s ease-in-out 1 forwards;
 }
 
 .blur {
-    animation: blur 0.75s ease-in-out 1 forwards;
+    animation: blur 0.6s ease-in-out 1 forwards;
 }
 
 .hidden {
@@ -214,9 +227,14 @@ body, html {
 }
 
 /* Breaks for mobile as translation overflows to sides*/
-@keyframes slide {
+@keyframes slide-in {
     from {transform: translateX(100%);}
     to {transform: translateX(0%);}
+}
+
+@keyframes slide-out {
+    from {transform: translateX(0%);}
+    to {transform: translateX(100%);}
 }
 
 @keyframes blur {
@@ -228,6 +246,7 @@ body, html {
     width: 100px;
     height: 100px;
     float: left;
+    object-fit: contain;
 }
 
 .selected-product-details {

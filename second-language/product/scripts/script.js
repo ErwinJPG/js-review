@@ -1,5 +1,7 @@
 // For each row we want to make
 let pNum = 0;
+var isModalShown = false;
+
 for (let i = 0; i < 2; i++) {
     // Make a new row with class "row" and append to "product-shelf"
     let mainDiv = document.getElementById("product-shelf")
@@ -24,6 +26,9 @@ for (let i = 0; i < 2; i++) {
         pNum += 1
     }
 } 
+
+let overlayDiv = document.getElementById("modal-overlay");
+overlayDiv.addEventListener("click", hideModalPanel)
 
 function createNewRow() {
     let newRow = document.createElement("div");
@@ -99,6 +104,10 @@ function showModalPanel(name, description, image, cost) {
     let productDescription = document.getElementById("selected-product-description");
     let productPrice = document.getElementById("selected-product-price");
     let mainDiv = document.getElementById("main-div").children;
+
+    isModalShown = true;
+    overlayDiv.classList.remove("hidden")
+
     modalDiv.classList.remove("hidden");
     modalDiv.classList.add("open-drawer");
 
@@ -111,6 +120,22 @@ function showModalPanel(name, description, image, cost) {
     for (let i = 0; i < mainDiv.length; i++) {
         mainDiv[i].classList.add("blur");
     }
-
+    console.log(isModalShown)
     return modalDiv;
+}
+
+function hideModalPanel() {
+    let mainDiv = document.getElementById("main-div").children;
+    let modalDiv = document.getElementById("checkout-drawer");
+    modalDiv.classList.add("hidden");
+    modalDiv.classList.remove("open-drawer");
+    overlayDiv.classList.add("hidden")
+
+    isModalShown = false;
+
+    for (let i = 0; i < mainDiv.length; i++) {
+        mainDiv[i].classList.remove("blur");
+    }
+
+    console.log(isModalShown)
 }
