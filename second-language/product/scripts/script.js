@@ -116,12 +116,30 @@ function showModalPanel(name, description, image, cost) {
     productDescription.innerHTML = description;
     productPrice.innerHTML = `$${cost}`;
 
-    console.log(name, description, image, cost);
     for (let i = 0; i < mainDiv.length; i++) {
         mainDiv[i].classList.add("blur");
     }
-    console.log(isModalShown)
+    
+    changePriceBreakdown(cost);
+
     return modalDiv;
+}
+
+function changePriceBreakdown(cost) {
+    let priceDiv = document.getElementsByClassName("price-breakdown")[0];
+    let priceDivChild = priceDiv.children;
+
+    let tax = cost * 0.05;
+    let total = cost + tax + 15;
+
+    priceDivChild[0].innerHTML = `Item price: $${cost}`;
+    priceDivChild[1].innerHTML = `Shipping: $15`;
+    priceDivChild[2].innerHTML = `Tax: $${tax.toFixed(2)}`;
+    priceDivChild[3].innerHTML = `Total: $${total.toFixed(2)}`;
+}
+
+function calculateCost(cost) {
+
 }
 
 function hideModalPanel() {
@@ -136,6 +154,40 @@ function hideModalPanel() {
     for (let i = 0; i < mainDiv.length; i++) {
         mainDiv[i].classList.remove("blur");
     }
+}
 
-    console.log(isModalShown)
+// Slide purchase
+
+function handleSlider() {
+    let sliderLabel = document.getElementById("buy-slider-label");
+    let sliderElement = document.getElementById("buy-slider");
+    let decay = 0;
+
+    if (sliderElement.value == 100) {
+        sliderElement.classList.add("pop-out");
+        window.setTimeout(() => {
+            sliderLabel.remove();
+            sliderElement.remove();
+            createBought();
+        }, 650)
+    } else {
+        let interval = window.setInterval(() => {
+            decay += 0.05;
+            sliderElement.value -= decay;
+            
+            if (sliderElement.value == 0) {
+                clearInterval(interval);
+            }
+        }, 5);
+    }
+    
+}
+
+function createBought() {
+    let buyContainer = document.getElementsByClassName("buy-slider-container")[0];
+    let p = document.createElement("h2");
+    p.innerHTML = "Order created. Thank you!";
+    p.classList.add("center");
+
+    buyContainer.appendChild(p);
 }

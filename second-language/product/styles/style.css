@@ -41,7 +41,8 @@ body, html {
     margin: 0px;
 }
 
-.content {
+.center {
+    text-align: center;
 }
 
 /* START TOP PANEL */
@@ -220,7 +221,7 @@ body, html {
 }
 
 .open-drawer {
-    animation: slide-in 0.5s ease-in 1 forwards;
+    animation: slide-in 0.5s cubic-bezier(0, 0, 0.24, 0.84) 1 forwards;
 }
 
 /* Too harsh when closing modal. */
@@ -229,11 +230,15 @@ body, html {
 }
 
 .blur {
-    animation: blur 0.5s ease-in-out 1 forwards;
+    animation: blur 0.5s     1 forwards;
 }
 
 .hidden {
     display: none;
+}
+
+.pop-out {
+    animation: pop-out 1s ease 1 forwards;
 }
 
 /* Breaks for mobile as translation overflows to sides*/
@@ -251,6 +256,12 @@ body, html {
     from {filter: blur(0px);}
     to {filter: blur(2px);}
 }
+
+@keyframes pop-out {
+    0% {transform: scale(1);}
+    25% {transform: scale(1.1);}
+    50%, 100% {transform: scale(0);}
+  }
 
 .selected-product-image {
     width: 100px;
@@ -293,6 +304,39 @@ body, html {
 }
 
 /* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
-.buy-slider {
+/* https://blog.logrocket.com/creating-custom-css-range-slider-javascript-upgrades/ */
+.buy-slider-container {
     width: 100%;
+}
+
+.buy-slider {
+    -webkit-appearance: none;
+    appearance: none; 
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    border-radius: 0px;
+    background-color: darkgray;
+}
+
+.buy-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none; 
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    background-size: cover;
+    background-color: lightskyblue;
+    background-image: url("../images/chevron.svg");
+}
+
+/* https://stackoverflow.com/questions/52639387/how-to-disable-touch-on-input-range-only-accept-drag-to-change-its-value */
+input[type=range] {
+    pointer-events: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    pointer-events:auto;
 }
