@@ -85,10 +85,6 @@ body, html {
     padding: 6px;
 }
 
-.row {
-    
-}
-
 .row:after {
     content: "";
     display: table;
@@ -172,9 +168,6 @@ body, html {
 
 .product-description {
     font-size: regular;
-}
-
-.product-cost {
 }
 
 /* Start Modal Panel */

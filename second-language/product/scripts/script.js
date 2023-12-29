@@ -1,10 +1,9 @@
-// For each row we want to make
 let pNum = 0;
 var isModalShown = false;
 
 for (let i = 0; i < 2; i++) {
     // Make a new row with class "row" and append to "product-shelf"
-    let mainDiv = document.getElementById("product-shelf")
+    let mainDiv = document.getElementById("product-shelf");
     let newRow = createNewRow();
 
     mainDiv.appendChild(newRow);
@@ -23,12 +22,12 @@ for (let i = 0; i < 2; i++) {
 
         newRow.appendChild(newColumn);
         newColumn.appendChild(newProduct);
-        pNum += 1
+        pNum += 1;
     }
 } 
 
 let overlayDiv = document.getElementById("modal-overlay");
-overlayDiv.addEventListener("click", hideModalPanel)
+overlayDiv.addEventListener("click", hideModalPanel);
 
 function createNewRow() {
     let newRow = document.createElement("div");
@@ -45,6 +44,7 @@ function createNewProduct(name, description, image, cost) {
     let productImage = createProductImage(image);
     let productDetails = createProductDetails(name, description, cost);
 
+    // Displays modal panel
     mainDiv.addEventListener("click", function() {
         showModalPanel(name, description, image, cost);
     })
@@ -52,16 +52,16 @@ function createNewProduct(name, description, image, cost) {
     mainDiv.appendChild(productImage);
     mainDiv.appendChild(productDetails);
 
-    return mainDiv
+    return mainDiv;
 }
 
+// Creates product thumbnail
 function createProductImage(image) {
     let imgDiv = document.createElement("div");
     let img = document.createElement("img");
     let link  = document.createElement("a");
 
     imgDiv.classList.add("product-image");
-    //img.setAttribute("src", "https://placehold.co/200x150");
     img.setAttribute("src", image);
     img.setAttribute("alt", "");
     img.setAttribute("title", "");
@@ -74,6 +74,7 @@ function createProductImage(image) {
     return imgDiv;
 }
 
+// Creates product details underneath product image
 function createProductDetails(name, description, cost) {
     let detailsDiv = document.createElement("div");
     let productName = document.createElement("p");
@@ -125,6 +126,7 @@ function showModalPanel(name, description, image, cost) {
     return modalDiv;
 }
 
+// Calculates and displays price breakdown
 function changePriceBreakdown(cost) {
     let priceDiv = document.getElementsByClassName("price-breakdown")[0];
     let priceDivChild = priceDiv.children;
@@ -136,10 +138,6 @@ function changePriceBreakdown(cost) {
     priceDivChild[1].innerHTML = `Shipping: $15`;
     priceDivChild[2].innerHTML = `Tax: $${tax.toFixed(2)}`;
     priceDivChild[3].innerHTML = `Total: $${total.toFixed(2)}`;
-}
-
-function calculateCost(cost) {
-
 }
 
 function hideModalPanel() {
@@ -157,7 +155,6 @@ function hideModalPanel() {
 }
 
 // Slide purchase
-
 function handleSlider() {
     let sliderLabel = document.getElementById("buy-slider-label");
     let sliderElement = document.getElementById("buy-slider");
