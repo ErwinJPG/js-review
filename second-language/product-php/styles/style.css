@@ -1,0 +1,335 @@
+@font-face {
+    /* https://www.1001fonts.com/bebas-neue-font.html */
+    font-family: bebas-nueue;
+    src: url(../fonts/bebas-neue.regular.otf);
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    /* https://imagecolorpicker.com/color-code/8878c3 */
+    /* https://imagecolorpicker.com/color-code/fbebeb */
+    /* https://webflow.com/blog/web-design-portfolios */
+
+    /* Purple is tiring to look at */
+    /* Consider yellow-black theme */
+    background-color: #fff;
+    font-family: "Bebas Nueue Regular", bebas-nueue;
+    font-size: 16px;
+    color: black;
+    overflow: auto;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+.footer {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: smaller;
+    z-index: 0;
+}
+
+.footer p {
+    margin: 0px;
+}
+
+.center {
+    text-align: center;
+}
+
+/* START TOP PANEL */
+
+.top-panel {
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    height: 47px;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    border-bottom: 3px black solid;
+    z-index: 1;
+}   
+
+.top-header {
+    text-align: center;
+    font-size: xx-large;
+    margin: 5px;
+}
+
+/* END TOP PANEL */
+
+/* START PRODUCT SHELF */
+
+.product-shelf {
+    position: relative;
+    margin: auto;
+    margin-top: 8rem;
+    margin-left: 60px;
+    margin-right: 60px;
+    z-index: 1;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 6px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 700px) {
+    .column {
+      width: 100%;
+    }
+}
+
+
+/* END PRODUCT SHELF */
+
+/* START BILLBOARD */
+
+.billboard-image {
+    margin: 47px;
+    margin-bottom: 0px;
+}
+
+.billboard-image img {
+    padding-right: 6%;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-height: 480px) {
+    .billboard-image {
+        display: none;
+    }
+    .product-shelf {
+        margin-top: 50px;
+    }
+}
+
+/* End BILLBOARD */
+
+/* START PRODUCT LAYOUT */
+
+.product-layout {
+    display: block;
+    height: auto;
+    margin: auto;
+    border: 1px black solid;
+    transition: all .2s ease-in-out;
+    background-color: #fff;
+    text-align: center;
+}
+
+.product-layout:hover {
+    transform: scale(1.04);
+}
+
+.product-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image img, a {
+    display: block;
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
+.product-details {
+    padding: 2px;
+    padding-left: 5px;
+    border-top: 1px black solid;
+    overflow-wrap: break-word;
+}
+
+.product-name {
+    font-size: larger;
+}
+
+.product-description {
+    font-size: regular;
+}
+
+/* Start Modal Panel */
+
+.checkout-drawer {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100vh;
+    z-index: 999;
+    background-color: #fff;
+    border: 1px #000 solid;
+}
+
+@media (max-width: 700px) {
+    .checkout-drawer {
+      width: 100%;
+    }
+}
+
+.checkout-layout {
+    margin: 40px;
+    text-align: left;
+}
+
+.exit-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+    width: 15px;
+    height: 15px;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;
+    height: 100%;
+    z-index: 999;
+}
+
+.open-drawer {
+    animation: slide-in 0.5s cubic-bezier(0, 0, 0.24, 0.84) 1 forwards;
+}
+
+/* Too harsh when closing modal. */
+.close-drawer {
+    animation: slide-out 0.5s ease-in 1 forwards;
+}
+
+.blur {
+    animation: blur 0.5s     1 forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+.pop-out {
+    animation: pop-out 1s ease 1 forwards;
+}
+
+/* Breaks for mobile as translation overflows to sides*/
+@keyframes slide-in {
+    from {transform: translateX(100%);}
+    to {transform: translateX(0%);}
+}
+
+@keyframes slide-out {
+    from {transform: translateX(0%);}
+    to {transform: translateX(100%);}
+}
+
+@keyframes blur {
+    from {filter: blur(0px);}
+    to {filter: blur(2px);}
+}
+
+@keyframes pop-out {
+    0% {transform: scale(1);}
+    25% {transform: scale(1.1);}
+    50%, 100% {transform: scale(0);}
+  }
+
+.selected-product-image {
+    width: 100px;
+    height: 100px;
+    float: left;
+    object-fit: contain;
+}
+
+.selected-product-details {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    padding-left: 110px;
+    border: 1px #000 solid;
+}
+
+.selected-product-details p, h3 {
+    margin: 0;
+}
+
+.selected-product-title {
+    padding-bottom: 5px;
+}   
+
+.selected-product-description {
+
+}
+
+.selected-product-price {
+}
+
+.price-breakdown {
+    height: 100%;
+    padding-top: 100px;
+}
+
+.price-breakdown h3, p, h2 {
+    margin: 0;
+}
+
+/* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+/* https://blog.logrocket.com/creating-custom-css-range-slider-javascript-upgrades/ */
+.buy-slider-container {
+    width: 100%;
+}
+
+.buy-slider {
+    -webkit-appearance: none;
+    appearance: none; 
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    border-radius: 0px;
+    background-color: darkgray;
+}
+
+.buy-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none; 
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    background-size: cover;
+    background-color: lightskyblue;
+    background-image: url("../images/chevron.svg");
+}
+
+/* https://stackoverflow.com/questions/52639387/how-to-disable-touch-on-input-range-only-accept-drag-to-change-its-value */
+input[type=range] {
+    pointer-events: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    pointer-events:auto;
+}
