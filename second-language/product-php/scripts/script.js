@@ -8,7 +8,7 @@ for (let i = 0; i < 2; i++) {
 
     mainDiv.appendChild(newRow);
  
-    // For each column we want
+    // For each column we wantasd
     for (let j = 0; j < 3; j++) {
         // Make a new column with class "column" and append to row.
         // Make an image. Set its src = "img/"+products[pNum].filename; Append to column.

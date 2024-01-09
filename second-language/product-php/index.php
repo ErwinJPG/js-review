@@ -15,6 +15,7 @@
             </div>
             <div id="product-shelf" class="product-shelf">
                 <?php
+                    $pNum = 0;
                     $products = getProducts();
 
                     // 4 no-break-spaces used for spacing below
@@ -31,15 +32,22 @@
                     //            echo "descr: " . $product['descr'] . "<br />";
                     //        echo "</div>";
                     //};
+                    #echo $products[0]['pname'];
+                    # rev1
                     for ($i = 0; $i < 2; $i++) {
                         echo "<div class='row'>";
                         for ($j = 0; $j < 3; $j++) {
                             echo "<div class='column'>";
-                            
-                        }
+                                echo "<div id='product-{$pNum}' class='product-layout'>";
+                                    echo "<div class='product-image'><a href='#'><img src='{$products[$pNum]['img']}' alt=' title=' draggable='false'></a></div>";
+                                    echo "<div class='product-details'><p class='product-name'>{$products[$pNum]['pname']}</p><p class='product-description'>{$products[$pNum]['descr']}</p><p class='product-cost'>\${$products[$pNum]["price"]}</p></div>";
+                                    echo "</div>";
+                            echo "</div>"; 
+                            $pNum ++;
+                        }               
                         echo "</div>";
                     }
-                    
+
                 ?>
             </div>
 
@@ -72,5 +80,6 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="scripts/script.js"></script>
     </body>
 </html>
