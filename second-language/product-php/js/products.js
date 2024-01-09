@@ -1,44 +1,44 @@
 var products = [
         {
             "name": "beyerdynamic DT 990 Pro",
-            "description": "Entry-level audiophile headphones",
             "model_number": 2,
+            "price": 230,
             "image_url": "images/beyer.png",
-            "price": 230
+            "description": "Entry-level audiophile headphones"
         },
         {
             "name": "Sennheiser HD 599",
-            "description": "I love this thing.",
             "model_number": 3,
+            "price": 259.95,
             "image_url": "images/hd599.png",
-            "price": 259.95
+            "description": "I love this thing."
         },
         {
             "name": "Audeze LCD-2",
-            "description": "Best use of magnets over MRIs.",
             "model_number": 0,
+            "price": 995.00,
             "image_url": "images/lcd2.png",
-            "price": 995.00
+            "description": "Best use of magnets over MRIs."
         },
         {
             "name": "BEOPLAY H95 FERRARI EDITION",
-            "description": "Designer headphones : /",
             "model_number": 5,
+            "price": 1799,
             "image_url": "images/bang.png",
-            "price": 1799
+            "description": "Designer headphones : /"
         },
         {
             "name": "Sennheiser HD 800 S",
-            "description": "Costs more than a Civic.",
             "model_number": 1,
+            "price": 2399.95,
             "image_url": "images/senn.png",
-            "price": 2399.95
+            "description": "Costs more than a Civic."
         },
         {
             "name": "Hifiman SUSVARA",
-            "description": "Holy grail of headphones.",
             "model_number": 4,
+            "price": 6000,
             "image_url": "images/sus.png",
-            "price": 6000
+            "description": "Holy grail of headphones."
         }
     ]

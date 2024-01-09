@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php require_once 'dbaccess.php'; ?>
+<!DOCTYPE php?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -13,7 +14,35 @@
                 <p class="top-header">MAWP.SHOP</p>
             </div>
             <div id="product-shelf" class="product-shelf">
+                <?php
+                    $products = getProducts();
+
+                    // 4 no-break-spaces used for spacing below
+                    $tab = "&nbsp;&nbsp;&nbsp;&nbsp;";
+
+                    // display each product's info on a separate line
+                    //foreach ($products as $product){
+                    //        echo "<div style='height:20px;overflow:hidden;font-size:15px;line-height:20px;margin:4px;'>";
+                    //            echo "pid: "   . $product['pid']   . $tab;
+                    //            echo "pname: " . $product['pid']   . $tab;
+                    //            echo "model: " . $product['model'] . $tab;
+                    //            echo "price: " . $product['price'] . $tab;
+                    //            echo "img: "   . $product['img']   . $tab;
+                    //            echo "descr: " . $product['descr'] . "<br />";
+                    //        echo "</div>";
+                    //};
+                    for ($i = 0; $i < 2; $i++) {
+                        echo "<div class='row'>";
+                        for ($j = 0; $j < 3; $j++) {
+                            echo "<div class='column'>";
+                            
+                        }
+                        echo "</div>";
+                    }
+                    
+                ?>
             </div>
+
             <div class="footer" >
                 <p>© Erwin 2023</p>
             </div>
@@ -44,6 +73,4 @@
             </div>
         </div>
     </body>
-    <script type="text/javascript" src="db/products.js"></script>
-    <script type="text/javascript" src="scripts/script.js"></script>
 </html>
