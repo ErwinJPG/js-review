@@ -40,5 +40,26 @@ var products = [
             "price": 6000,
             "image_url": "images/sus.png",
             "description": "Holy grail of headphones."
+        },
+        {
+            "name": "Neumann KH 870 G",
+            "model_number": 5,
+            "price": 6100,
+            "image_url": "images/neumann.png",
+            "description": "7.1 analog bass managed subwoofer."
+        },
+        {
+            "name": "final LAB II",
+            "model_number": 6,
+            "price": 10000,
+            "image_url": "images/lab.png",
+            "description": "With a unique shape that can only be created using a 3D printer, a vast sound field never seen before is achieved."
+        },
+        {
+            "name": "Sennheiser HE-1",
+            "model_number": 7,
+            "price": 59000,
+            "image_url": "images/he1.png",
+            "description": "Reshaping excellence."
         }
-    ]
+    ]   

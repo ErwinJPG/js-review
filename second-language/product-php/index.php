@@ -1,5 +1,5 @@
 <?php require_once 'dbaccess.php'; ?>
-<!DOCTYPE php?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -14,35 +14,54 @@
                 <p class="top-header">MAWP.SHOP</p>
             </div>
             <div id="product-shelf" class="product-shelf">
+                <form id="search-box" action="index.php" method="get">
+                    <label for="search-box">Search</label>
+                    <input id="search-input" type="text" name="search">
+                    <button id="search-button" class="submit-button" type="submit">Submit</button>
+                </form>
                 <?php
                     $pNum = 0;
-                    $products = getProducts();
-
-                    // 4 no-break-spaces used for spacing below
                     $tab = "&nbsp;&nbsp;&nbsp;&nbsp;";
 
-                    // display each product's info on a separate line
-                    //foreach ($products as $product){
-                    //        echo "<div style='height:20px;overflow:hidden;font-size:15px;line-height:20px;margin:4px;'>";
-                    //            echo "pid: "   . $product['pid']   . $tab;
-                    //            echo "pname: " . $product['pid']   . $tab;
-                    //            echo "model: " . $product['model'] . $tab;
-                    //            echo "price: " . $product['price'] . $tab;
-                    //            echo "img: "   . $product['img']   . $tab;
-                    //            echo "descr: " . $product['descr'] . "<br />";
-                    //        echo "</div>";
-                    //};
-                    #echo $products[0]['pname'];
-                    # rev1
-                    for ($i = 0; $i < 2; $i++) {
+                    // Ensure name parameter is set before accessing it
+                    if (isset($_GET['search'])) { 
+                        $products = searchProducts($_GET['search']); 
+                        htmlspecialchars($_GET["search"]);
+
+                    }
+                    else { 
+                        $products = getProducts();
+                    }
+                    // This is better because it will handle encoding of 
+                    // https://stackoverflow.com/questions/9821103/dynamic-create-rows-and-colum-with-the-help-of-php-and-html
+                    $db_size = sizeof($products);
+                    $max_column = 3;
+
+                    for ($i = 0; $i < 3; $i++) {
+                        if ($db_size <= $pNum) break;
                         echo "<div class='row'>";
-                        for ($j = 0; $j < 3; $j++) {
+                        for ($j = 0; $j < $max_column; $j++) {
+                            if ($db_size <= $pNum) break;
                             echo "<div class='column'>";
                                 echo "<div id='product-{$pNum}' class='product-layout'>";
-                                    echo "<div class='product-image'><a href='#'><img src='{$products[$pNum]['img']}' alt=' title=' draggable='false'></a></div>";
-                                    echo "<div class='product-details'><p class='product-name'>{$products[$pNum]['pname']}</p><p class='product-description'>{$products[$pNum]['descr']}</p><p class='product-cost'>\${$products[$pNum]["price"]}</p></div>";
-                                    echo "</div>";
-                            echo "</div>"; 
+                                    echo "<div class='product-image'>
+                                            <a href='#'>
+                                                <img src='{$products[$pNum]['img']}' alt=' title=' draggable='false'>
+                                            </a>
+                                        </div>";
+                                    echo "<div class='product-details'>
+                                            <p class='product-name'>{$products[$pNum]['pname']}</p>
+                                            <p class='product-description'>{$products[$pNum]['descr']}</p>
+                                            <p class='product-cost'>\${$products[$pNum]["price"]}</p>
+                                        </div>";
+                                echo "</div>";
+                            echo "</div>";
+                            echo "<script>",
+                                    "document.getElementById('product-{$pNum}').addEventListener('click', function() {",
+                                    "    showModalPanel('{$products[$pNum]['pname']}', '{$products[$pNum]['descr']}', '{$products[$pNum]['img']}', '{$products[$pNum]["price"]}')",
+                                    "});",
+                                "</script>";
+                                
                             $pNum ++;
                         }               
                         echo "</div>";

@@ -1,41 +1,21 @@
 let pNum = 0;
 var isModalShown = false;
 
-for (let i = 0; i < 2; i++) {
-    // Make a new row with class "row" and append to "product-shelf"
-    let mainDiv = document.getElementById("product-shelf");
-    let newRow = createNewRow();
-
-    mainDiv.appendChild(newRow);
- 
-    // For each column we wantasd
-    for (let j = 0; j < 3; j++) {
-        // Make a new column with class "column" and append to row.
-        // Make an image. Set its src = "img/"+products[pNum].filename; Append to column.
-        // Make product name div with class "pName". Set innerHTML to products[pNum].name; Append to column.
-        // Add an onclick event to column, to trigger a modal popup box to appear
-        let newColumn = document.createElement("div");
-        let newProduct = createNewProduct(  products[pNum].name, products[pNum].description, 
-                                            products[pNum].image_url, products[pNum].price);
-        
-        newColumn.classList.add("column");
-
-        newRow.appendChild(newColumn);
-        newColumn.appendChild(newProduct);
-        pNum += 1;
-    }
-} 
-
 let overlayDiv = document.getElementById("modal-overlay");
 overlayDiv.addEventListener("click", hideModalPanel);
+
+//let mainDiv = document.getElementById("product")
+//mainDiv.addEventListener("click", function() {
+//    showModalPanel(name, description, image, cost);
+//})
 
 function createNewRow() {
     let newRow = document.createElement("div");
     newRow.classList.add("row");
 
+
     return newRow;
 }
-
 function createNewProduct(name, description, image, cost) {
     let mainDiv = document.createElement("div");
     mainDiv.setAttribute("id", `product-${pNum}`);
@@ -45,9 +25,7 @@ function createNewProduct(name, description, image, cost) {
     let productDetails = createProductDetails(name, description, cost);
 
     // Displays modal panel
-    mainDiv.addEventListener("click", function() {
-        showModalPanel(name, description, image, cost);
-    })
+    
 
     mainDiv.appendChild(productImage);
     mainDiv.appendChild(productDetails);
@@ -121,7 +99,7 @@ function showModalPanel(name, description, image, cost) {
         mainDiv[i].classList.add("blur");
     }
     
-    changePriceBreakdown(cost);
+    changePriceBreakdown(parseFloat(cost));
 
     return modalDiv;
 }
