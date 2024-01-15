@@ -166,3 +166,11 @@ function createBought() {
 
     buyContainer.appendChild(p);
 }
+
+function preventSubmitOnEmpty() {
+    let inputDiv = document.getElementById("search-input");
+    
+    if (inputDiv.value == null || inputDiv.value == "") {
+        return false;
+    } 
+}

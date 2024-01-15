@@ -14,7 +14,7 @@
                 <p class="top-header">MAWP.SHOP</p>
             </div>
             <div id="product-shelf" class="product-shelf">
-                <form id="search-box" action="index.php" method="get">
+                <form id="search-box" action="index.php" method="get" style="padding: 6px" onsubmit="return preventSubmitOnEmpty()">
                     <label for="search-box">Search</label>
                     <input id="search-input" type="text" name="search">
                     <button id="search-button" class="submit-button" type="submit">Submit</button>
@@ -27,20 +27,18 @@
                     if (isset($_GET['search'])) { 
                         $products = searchProducts($_GET['search']); 
                         htmlspecialchars($_GET["search"]);
-
+                        $db_size = sizeof($products);
+                        echo "<p style='color: #70757a; padding: 6px'> Searching for {$_GET['search']}. {$db_size} results </p>";
                     }
                     else { 
                         $products = getProducts();
+                        $db_size = sizeof($products);
                     }
-                    // This is better because it will handle encoding of 
-                    // https://stackoverflow.com/questions/9821103/dynamic-create-rows-and-colum-with-the-help-of-php-and-html
-                    $db_size = sizeof($products);
-                    $max_column = 3;
 
                     for ($i = 0; $i < 3; $i++) {
                         if ($db_size <= $pNum) break;
                         echo "<div class='row'>";
-                        for ($j = 0; $j < $max_column; $j++) {
+                        for ($j = 0; $j < 3; $j++) {
                             if ($db_size <= $pNum) break;
                             echo "<div class='column'>";
                                 echo "<div id='product-{$pNum}' class='product-layout'>";
