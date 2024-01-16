@@ -16,7 +16,7 @@
             <div id="product-shelf" class="product-shelf">
                 <form id="search-box" action="index.php" method="get" style="padding: 6px" onsubmit="return preventSubmitOnEmpty()">
                     <label for="search-box">Search</label>
-                    <input id="search-input" type="text" name="search">
+                    <input id="search-input" type="text" name="search" style="height: 2rem">
                     <button id="search-button" class="submit-button" type="submit">Submit</button>
                 </form>
                 <?php
@@ -28,7 +28,10 @@
                         $products = searchProducts($_GET['search']); 
                         htmlspecialchars($_GET["search"]);
                         $db_size = sizeof($products);
-                        echo "<p style='color: #70757a; padding: 6px'> Searching for {$_GET['search']}. {$db_size} results </p>";
+                        echo    "<p style='color: #70757a; padding: 6px; width: fit-content'> 
+                                    Searching for {$_GET['search']}. {$db_size} results
+                                    <img class='clear-query-button' src='images/cross.svg' alt='Exit' onclick='clearQuery()'></img> 
+                                </p>";
                     }
                     else { 
                         $products = getProducts();

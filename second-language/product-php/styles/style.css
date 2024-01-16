@@ -127,15 +127,14 @@ body, html {
 
 /* START PRODUCT LAYOUT */
 .submit-box {
-    height: auto
+    height: 50px
 }
 
 .submit-button {
-    height: auto;
+    height: 2rem;
     width: fit-content;
     background-color: #fff;
     border-width: 1px;
-    margin-top: 12px;
     border-radius: 0px;
     padding: 6px;
 }
@@ -226,6 +225,15 @@ body, html {
     margin: 15px;
     width: 15px;
     height: 15px;
+}
+
+.clear-query-button {
+    display: block;
+    float: right;
+    width: 15px;
+    height: 15px;
+    color:  #70757a;
+    margin-left: 15px;
 }
 
 .modal-overlay {

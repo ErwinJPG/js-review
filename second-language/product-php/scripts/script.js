@@ -174,3 +174,8 @@ function preventSubmitOnEmpty() {
         return false;
     } 
 }
+
+// https://stackoverflow.com/questions/22753052/remove-url-parameters-without-refreshing-page
+function clearQuery() {
+    window.location.href =  window.location.href.split("?")[0];
+}
