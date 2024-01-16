@@ -101,29 +101,11 @@ body, html {
 
 /* END PRODUCT SHELF */
 
-/* START BILLBOARD */
-
-.billboard-image {
-    margin: 47px;
-    margin-bottom: 0px;
-}
-
-.billboard-image img {
-    padding-right: 6%;
-    object-fit: contain;
-    background-repeat: no-repeat;
-}
-
 @media screen and (max-height: 480px) {
-    .billboard-image {
-        display: none;
-    }
     .product-shelf {
         margin-top: 50px;
     }
 }
-
-/* End BILLBOARD */
 
 /* START PRODUCT LAYOUT */
 .submit-box {
@@ -312,13 +294,6 @@ body, html {
 .selected-product-title {
     padding-bottom: 5px;
 }   
-
-.selected-product-description {
-
-}
-
-.selected-product-price {
-}
 
 .price-breakdown {
     height: 100%;
