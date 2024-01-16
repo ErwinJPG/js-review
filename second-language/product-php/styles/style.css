@@ -132,6 +132,7 @@ body, html {
 
 .submit-button {
     height: 2rem;
+    width: -moz-fit-content;
     width: fit-content;
     background-color: #fff;
     border-width: 1px;
