@@ -28,6 +28,7 @@
                         $products = searchProducts($_GET['search']); 
                         htmlspecialchars($_GET["search"]);
                         $db_size = sizeof($products);
+                        
                         echo    "<p style='color: #70757a; padding: 6px; width: fit-content'> 
                                     Searching for {$_GET['search']}. {$db_size} results
                                     <img class='clear-query-button' src='images/cross.svg' alt='Exit' onclick='clearQuery()'></img> 
@@ -38,7 +39,7 @@
                         $db_size = sizeof($products);
                     }
 
-                    for ($i = 0; $i < 3; $i++) {
+                    for ($i = 0;; $i++) {
                         if ($db_size <= $pNum) break;
                         echo "<div class='row'>";
                         for ($j = 0; $j < 3; $j++) {

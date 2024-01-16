@@ -53,7 +53,14 @@ var products = [
             "model_number": 6,
             "price": 10000,
             "image_url": "images/lab.png",
-            "description": "With a unique shape that can only be created using a 3D printer, a vast sound field never seen before is achieved."
+            "description": "Violation of your ear canals."
+        },
+        {
+            "name": "Bachelor of Science in Electrical Engineering",
+            "model_number": 6,
+            "price": 11907.53,
+            "image_url": "images/diploma.png",
+            "description": "Ultimate path of the audiophile."
         },
         {
             "name": "Sennheiser HE-1",
