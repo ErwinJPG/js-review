@@ -44,26 +44,25 @@
                         echo "<div class='row'>";
                         for ($j = 0; $j < 3; $j++) {
                             if ($db_size <= $pNum) break;
-                            echo "<div class='column'>";
-                                echo "<div id='product-{$pNum}' class='product-layout'>";
-                                    echo "<div class='product-image'>
-                                            <a href='#'>
-                                                <img src='{$products[$pNum]['img']}' alt=' title=' draggable='false'>
-                                            </a>
-                                        </div>";
-                                    echo "<div class='product-details'>
+                            echo "<div class='column'>
+                                    <div id='product-{$pNum}' class='product-layout'>
+                                        <div class='product-image'>
+                                           <a href='#'>
+                                               <img src='{$products[$pNum]['img']}' alt=' title=' draggable='false'>
+                                           </a>
+                                        </div>
+                                        <div class='product-details'>
                                             <p class='product-name'>{$products[$pNum]['pname']}</p>
                                             <p class='product-description'>{$products[$pNum]['descr']}</p>
                                             <p class='product-cost'>\${$products[$pNum]["price"]}</p>
-                                        </div>";
-                                echo "</div>";
-                            echo "</div>";
-                            echo "<script>",
-                                    "document.getElementById('product-{$pNum}').addEventListener('click', function() {",
-                                    "    showModalPanel('{$products[$pNum]['pname']}', '{$products[$pNum]['descr']}', '{$products[$pNum]['img']}', '{$products[$pNum]["price"]}')",
-                                    "});",
-                                "</script>";
-                                
+                                        </div>
+                                    </div>0
+                                 </div>
+                                 <script>
+                                     document.getElementById('product-{$pNum}').addEventListener('click', function() {
+                                         showModalPanel('{$products[$pNum]['pname']}', '{$products[$pNum]['descr']}', '{$products[$pNum]['img']}', '{$products[$pNum]["price"]}')
+                                     });
+                                 </script>";
                             $pNum ++;
                         }               
                         echo "</div>";
