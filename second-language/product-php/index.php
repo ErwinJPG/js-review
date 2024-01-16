@@ -56,7 +56,7 @@
                                             <p class='product-description'>{$products[$pNum]['descr']}</p>
                                             <p class='product-cost'>\${$products[$pNum]["price"]}</p>
                                         </div>
-                                    </div>0
+                                    </div>
                                  </div>
                                  <script>
                                      document.getElementById('product-{$pNum}').addEventListener('click', function() {
