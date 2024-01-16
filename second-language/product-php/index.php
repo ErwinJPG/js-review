@@ -15,8 +15,8 @@
             </div>
             <div id="product-shelf" class="product-shelf">
                 <form id="search-box" action="index.php" method="get" style="padding: 6px" onsubmit="return preventSubmitOnEmpty()">
-                    <label for="search-box">Search</label>
-                    <input id="search-input" type="text" name="search" style="height: 2rem">
+                    <label for="search-input">Search</label>
+                    <input id="search-input" type="text" name="search" style="height: 2rem"> 
                     <button id="search-button" class="submit-button" type="submit">Submit</button>
                 </form>
                 <?php
@@ -81,7 +81,7 @@
             <div class="checkout-layout">
                 <img class="exit-button" src="images/cross.svg" alt="Exit" onclick="hideModalPanel()"></img>
                 <h1>CHECKOUT</h1>
-                <img id="selected-product-image" src="https://placehold.co/100x100" class="selected-product-image" title alt>
+                <img id="selected-product-image" class="selected-product-image" title alt>
                 <div id="selected-product-details" class="selected-product-details">
                     <h3 id="selected-product-title" class="selected-product-title">EXAMPLE PRODUCT</h3>
                     <p id="selected-product-description" class="selected-product-description">EXAMPLE DESCRIPTION</p>
